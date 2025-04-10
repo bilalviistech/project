@@ -38,37 +38,37 @@ const partners = [
 
 const products = [
     {
-        image: 'https://www.dummyimg.in/placeholder',
+        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
         name: 'Product 1',
         shortDescription: 'This is a short description of product 1.',
         price: '49.99',
     },
     {
-        image: 'https://www.dummyimg.in/placeholder',
+        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
         name: 'Product 2',
         shortDescription: 'This is a short description of product 2.',
         price: '79.99',
     },
     {
-        image: 'https://www.dummyimg.in/placeholder',
+        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
         name: 'Product 3',
         shortDescription: 'This is a short description of product 3.',
         price: '29.99',
     },
     {
-        image: 'https://www.dummyimg.in/placeholder',
+        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
         name: 'Product 4',
         shortDescription: 'This is a short description of product 4.',
         price: '99.99',
     },
     {
-        image: 'https://www.dummyimg.in/placeholder',
+        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
         name: 'Product 5',
         shortDescription: 'This is a short description of product 5.',
         price: '59.99',
     },
     {
-        image: 'https://www.dummyimg.in/placeholder',
+        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
         name: 'Product 6',
         shortDescription: 'This is a short description of product 6.',
         price: '39.99',
@@ -359,7 +359,7 @@ const Home = () => {
                                     <img
                                         src={product.image}
                                         alt={product.name}
-                                        className="w-96 h-40 object-cover rounded-lg"
+                                        className="w-96 h-64 object-cover rounded-lg"
                                     />
                                 </div>
                                 <div className="text-center">
