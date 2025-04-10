@@ -25,6 +25,7 @@
     "react-select": "^5.8.2",
     "react-to-print": "^3.0.5",
     "react-toastify": "^10.0.6",
+    "swiper": "^11.2.6",
     "yup": "^1.4.0"
   },
   "devDependencies": {
