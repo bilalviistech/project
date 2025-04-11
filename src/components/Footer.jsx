@@ -34,7 +34,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link
-                                to="/about"
+                                to="/about-us"
                                 className="hover:text-orange-400 transition-all duration-300 text-sm"
                             >
                                 About
@@ -42,7 +42,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link
-                                to="/contact"
+                                to="/contact-us"
                                 className="hover:text-orange-400 transition-all duration-300 text-sm"
                             >
                                 Contact
