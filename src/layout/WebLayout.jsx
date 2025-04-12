@@ -17,7 +17,7 @@ export const WebLayout = () => {
       <Route exact path="/*" element={<Navigate to={"/"} replace />} />
       <Route exact path="/" element={<HomeScreen />} />
       <Route exact path="/product" element={<ProductScreen />} />
-      <Route exact path="/product-detail" element={<ProductDetailScreen />} />
+      <Route exact path="/product-detail/:id/:subcatId/:productTitle" element={<ProductDetailScreen />} />
       <Route exact path="/checkout" element={<CheckoutScreen />} />
       <Route exact path="/agreement/:id" element={<AgreementFormScreen />} />
       <Route exact path="/contact-us" element={<Contact />} />

@@ -3,34 +3,16 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-const categories = [
-    {
-        name: "Agreement",
-        products: [
-            { id: 1, name: "Product 1", price: 800, details: "This is just for Layout Example", image: "https://www.dummyimg.in/placeholder" },
-            { id: 2, name: "Product 2", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" },
-            { id: 3, name: "Product 3", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" },
-            { id: 4, name: "Product 3", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" },
-            { id: 5, name: "Product 3", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" }
-        ]
-    },
-    {
-        name: "Affidavit",
-        products: [
-            { id: 4, name: "Product 13", price: 600, details: "This is just for Layout Example", image: "https://www.dummyimg.in/placeholder" },
-            { id: 5, name: "Product 23", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" },
-            { id: 6, name: "Product 32", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" },
-            { id: 7, name: "Product 32", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" },
-            { id: 8, name: "Product 32", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" },
-            { id: 9, name: "Product 32", price: 800, details: "Lorem ipsum dolor sit amet.", image: "https://www.dummyimg.in/placeholder" }
-        ]
-    }
-];
+import { mycategories, products } from "./../../constant/data";
 
 const Product = () => {
     const [currentText, setCurrentText] = useState("Search Your Agreement");
     const textArray = ["Search Your Agreement", "Search Your Affidavit", "Search Your Undertaking", "Search Your Promissory Note", "Customize Document"];
+    const [catState, setCatState] = useState("Agreement")
+
+    const catChangeHandler = (value) => {
+        setCatState(value.name)
+    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -52,7 +34,7 @@ const Product = () => {
                 <p className="text-lg mt-2 text-black">Select, complete the details, and order your legal document draft. MavDocs ensures reliable, free delivery of your documents to your doorstep within hours</p>
             </div>
 
-            <div className="custom-search-section px-6 md:px-20 mx-4 md:mx-36 py-10">
+            <div className="custom-search-section px-6 md:px-20 mx-4 md:mx-36">
                 <div className="bg-[#00246B] flex flex-col md:flex-row items-center justify-center w-full p-4 rounded-lg shadow-lg">
 
                     {/* Search Header */}
@@ -93,11 +75,12 @@ const Product = () => {
             </div>
 
             {/* Category Tabs */}
-            <div className="flex justify-center gap-6">
-                {categories.map((category, index) => (
+            <div className="flex justify-center gap-6 m-3">
+                {mycategories.map((category, index) => (
                     <button
                         key={index}
                         className="px-6 py-3 bg-[#FF7F3E] text-white rounded-full shadow-md hover:bg-orange-600 transition-all text-lg font-semibold"
+                        onClick={() => catChangeHandler(category)}
                     >
                         {category.name}
                     </button>
@@ -105,50 +88,127 @@ const Product = () => {
             </div>
 
             {/* Product List */}
-            <div className="my-12 px-6">
-                {categories.map((category, index) => (
-                    <div key={index} className="mt-12">
-                        <h2 className="text-3xl font-semibold text-[#003092] mb-6">{category.name}</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {category.products.map(product => (
-                                <div
-                                    key={product.id}
-                                    className="bg-white text-black rounded-lg shadow border border-gray-200 p-6 relative flex flex-col justify-between h-full"
-                                >
-                                    {/* Price Badge on Top Right */}
-                                    <div className="absolute top-4 right-4 text-right">
-                                        <p className="text-sm text-gray-500 font-medium">Initial Price</p>
-                                        <p className="text-lg font-semibold text-[#003092]">Rs {product.price}</p>
-                                    </div>
+            {catState == "Agreement" && (
+                <div className="my-10 px-6">
+                    {products
+                        .filter((cat) => cat.categoryName === catState) // Filter only selected category
+                        .map((category, index) => (
+                            <div key={index} className="mt-12">
+                                <h2 className="text-3xl font-semibold text-[#003092] mb-6">{category.categoryName}</h2>
 
-                                    {/* Product Content */}
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-[#003092] mb-2">{product.name}</h3>
-                                        <p className="text-sm text-gray-600 mb-4">{product.details}</p>
+                                {/* Loop through subcategories */}
+                                {category.subcategories.map((subcat, subIndex) => (
+                                    <div key={subIndex} className="mb-10">
+                                        <h3 className="text-2xl font-bold text-[#003092] mb-4">{subcat.name}</h3>
 
-                                        <p className="font-semibold text-sm mb-2">What's The Process:</p>
-                                        <ul className="list-none space-y-1 text-sm text-gray-700">
-                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Select Status</li>
-                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enter Nominee Details</li>
-                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enter Delivery Address</li>
-                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enjoy Quick Delivery</li>
-                                        </ul>
-                                    </div>
+                                        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+                                            {subcat.products.map((product, prodIndex) => (
+                                                <div
+                                                    key={prodIndex}
+                                                    className="bg-white text-black rounded-lg shadow border border-gray-200 p-6 relative flex flex-col justify-between h-full"
+                                                >
+                                                    {/* Price Badge on Top Right */}
+                                                    <div className="absolute top-4 right-4 text-right">
+                                                        <p className="text-sm text-gray-500 font-medium">Initial Price</p>
+                                                        <p className="text-lg font-semibold text-[#003092]">Rs {product.price}</p>
+                                                        <img src={product.url} alt="" width={200} className="mt-7 md:mt-7 sm:mt-5 rounded-lg" />
+                                                    </div>
 
-                                    {/* Order Button */}
-                                    <div className="mt-6 text-right">
-                                        <Link to={`/agreement/${product.id}`}>
-                                            <button className="px-6 py-2 bg-[#FF7F3E] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
-                                                <FaShoppingCart /> Order Now
-                                            </button>
-                                        </Link>
+                                                    {/* Product Content */}
+                                                    <div>
+                                                        <h3 className="text-xl font-bold text-[#003092] mb-2">{product.title}</h3>
+                                                        <p className="text-sm text-gray-600 mb-4">{product.details || "Professional legal draft prepared by our experts."}</p>
+
+                                                        <p className="font-semibold text-sm mb-2">What's The Process:</p>
+                                                        <ul className="list-none space-y-1 text-sm text-gray-700">
+                                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Select Status</li>
+                                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enter Nominee Details</li>
+                                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enter Delivery Address</li>
+                                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enjoy Quick Delivery</li>
+                                                        </ul>
+                                                    </div>
+
+                                                    {/* Order Button */}
+                                                    <div className="mt-6 text-right">
+                                                        <Link to={`/product-detail/${category.id}/${subcat.id}/${product.title}`}>
+                                                            <button className="px-6 py-2 bg-[#FF7F3E] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
+                                                                <FaShoppingCart /> Order Now
+                                                            </button>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </div>
+                                ))}
+                            </div>
+                        ))}
+                </div>
+            )}
+
+            {catState == "Affidavit" && (
+                <div className="my-10 px-6">
+                    {products
+                        .filter((cat) => cat.categoryName === catState) // Filter only selected category
+                        .map((category, index) => (
+                            <div key={index} className="mt-12">
+                                <h2 className="text-3xl font-semibold text-[#003092] mb-6">{category.categoryName}</h2>
+
+                                {/* Loop through subcategories */}
+                                {category.subcategories.map((subcat, subIndex) => (
+                                    <div key={subIndex} className="mb-10">
+                                        <h3 className="text-2xl font-bold text-[#003092] mb-4">{subcat.name}</h3>
+
+                                        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+                                            {subcat.products.map((product, prodIndex) => (
+                                                <div
+                                                    key={prodIndex}
+                                                    className="bg-white text-black rounded-lg shadow border border-gray-200 p-6 relative flex flex-col justify-between h-full"
+                                                >
+                                                    {/* Price Badge on Top Right */}
+                                                    <div className="absolute top-4 right-4 text-right">
+                                                        <p className="text-sm text-gray-500 font-medium">Initial Price</p>
+                                                        <p className="text-lg font-semibold text-[#003092]">Rs {product.price}</p>
+                                                        <img src={product.url} alt="" width={200} className="mt-7 md:mt-7 sm:mt-5 rounded-lg" />
+                                                    </div>
+
+                                                    {/* Product Content */}
+                                                    <div>
+                                                        <h3 className="text-xl font-bold text-[#003092] mb-2">{product.title}</h3>
+                                                        <p className="text-sm text-gray-600 mb-4">{product.details || "Professional legal draft prepared by our experts."}</p>
+
+                                                        <p className="font-semibold text-sm mb-2">What's The Process:</p>
+                                                        <ul className="list-none space-y-1 text-sm text-gray-700">
+                                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Select Status</li>
+                                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enter Nominee Details</li>
+                                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enter Delivery Address</li>
+                                                            <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enjoy Quick Delivery</li>
+                                                        </ul>
+                                                    </div>
+
+                                                    {/* Order Button */}
+                                                    <div className="mt-6 text-right">
+                                                        <Link to={`/product-detail/${category.id}/${subcat.id}/${product.title}`}>
+                                                            <button className="px-6 py-2 bg-[#FF7F3E] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
+                                                                <FaShoppingCart /> Order Now
+                                                            </button>
+                                                        </Link>
+                                                        {/* <Link to={`/agreement/${product.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                                                            <button className="px-6 py-2 bg-[#FF7F3E] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
+                                                                <FaShoppingCart /> Order Now
+                                                            </button>
+                                                        </Link> */}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                </div>
+            )}
+
 
             <Footer />
         </div>
