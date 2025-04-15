@@ -41,7 +41,7 @@ export default function Checkout() {
                     <h3 className="text-2xl font-semibold mb-4 text-gray-800">Product Information</h3>
                     <div className="flex flex-col md:flex-row items-center gap-6">
                         <img
-                            src="/product.jpg"
+                            src="https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg"
                             alt="Product"
                             className="w-32 h-32 rounded-xl shadow-md"
                         />
