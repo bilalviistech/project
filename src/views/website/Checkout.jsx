@@ -1,96 +1,181 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const timeSlotOptions = [
+    { slot: "9:00 AM - 11:59 AM", price: 100 },
+    { slot: "03:00 PM - 06:00 PM", price: 120 }
+];
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ThankYou from "@/components/ThankYou";
 
 export default function Checkout() {
-    const navigate = useNavigate()
-    const [formData, setFormData] = useState({
-        fullName: "",
-        email: "",
-        phone: "",
-        address: "",
-        city: "",
-        postalCode: "",
-        country: "",
-        cnic: ""
-    });
+    const [selectedSlot, setSelectedSlot] = useState(timeSlotOptions[0]);
+    const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Submitted", formData);
-
-        // Show Modal
-        setIsModalOpen(true);
-
-        // 3 seconds baad modal close ho jaye
+    const handlePayment = () => {
+        setShowModal(true);
         setTimeout(() => {
-            navigate('/')
-            setIsModalOpen(false);
-        }, 3000);
+            setShowModal(false);
+            navigate("/");
+        }, 4000);
     };
 
     return (
-        <>
-        <Header/>
-            <div className="bg-[#003092] min-h-screen flex flex-col items-center p-6 text-white">
-                <h2 className="text-3xl font-bold mb-6">Checkout</h2>
+        <div className="bg-blue-50 min-h-screen text-black">
+            <Header />
+            <div className="max-w-6xl mx-auto p-4 md:p-8 space-y-10">
+                <motion.h2
+                    className="text-4xl font-extrabold text-center text-indigo-600"
+                    initial={{ y: -40, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    Checkout Page
+                </motion.h2>
 
-                <div className="bg-white text-black w-full max-w-3xl p-6 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-semibold mb-4">Billing Details</h3>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} className="w-full p-3 border rounded" required />
-                        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full p-3 border rounded" required />
-                        <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className="w-full p-3 border rounded" required />
-                        <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleChange} className="w-full p-3 border rounded" required />
-                        <div className="flex gap-4">
-                            <input type="text" name="city" placeholder="City" value={formData.city} onChange={handleChange} className="w-1/2 p-3 border rounded" required />
-                            <input type="text" name="postalCode" placeholder="Postal Code" value={formData.postalCode} onChange={handleChange} className="w-1/2 p-3 border rounded" required />
+                {/* Product Info */}
+                <MotionCard>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">Product Information</h3>
+                    <div className="flex flex-col md:flex-row items-center gap-6">
+                        <img
+                            src="/product.jpg"
+                            alt="Product"
+                            className="w-32 h-32 rounded-xl shadow-md"
+                        />
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-800">Premium Service Package</h4>
+                            <p className="text-gray-500">Includes full support and 2 free revisits</p>
+                            <p className="text-green-600 font-semibold mt-2">Base Price: $150</p>
                         </div>
-                        <input type="text" name="country" placeholder="Country" value={formData.country} onChange={handleChange} className="w-full p-3 border rounded" required />
-                        <input type="text" name="cnic" placeholder="CNIC" value={formData.cnic} onChange={handleChange} className="w-full p-3 border rounded" required />
+                    </div>
+                </MotionCard>
 
-                        <div className="bg-gray-100 p-4 rounded mt-4">
-                            <h3 className="text-lg font-semibold mb-2">Terms & Conditions</h3>
-                            <p className="text-sm text-gray-600">By proceeding with this order, you agree to our terms and conditions, including refund and privacy policies.</p>
-                        </div>
+                {/* Customer Info */}
+                <MotionCard>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">Customer Information</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <Input placeholder="Full Name" />
+                        <Input placeholder="Email Address" />
+                        <Input placeholder="Phone Number" />
+                        <Input placeholder="Address" />
+                    </div>
+                </MotionCard>
 
-                        <button type="submit" className="w-full bg-[#FF7F3E] text-white p-3 rounded-lg font-semibold hover:bg-orange-600 transition">Confirm & Proceed</button>
-                    </form>
-                </div>
+                {/* Payment Option */}
+                <MotionCard>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">Select Payment Method</h3>
+                    <div className="flex flex-col gap-4">
+                        {["Credit/Debit Card", "PayPal", "Cash on Delivery"].map((method, idx) => (
+                            <label key={idx} className="flex items-center gap-3 cursor-pointer text-gray-700">
+                                <input type="radio" name="payment" className="accent-indigo-600" />
+                                {method}
+                            </label>
+                        ))}
+                    </div>
+                </MotionCard>
 
-                {/* Modal with Animation */}
-                <AnimatePresence>
-                    {isModalOpen && (
-                        <motion.div
-                            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
+                {/* Time Slot + Price Update */}
+                <MotionCard>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">Choose Time Slot</h3>
+                    <div className="grid md:grid-cols-2 gap-4 items-center">
+                        <select
+                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                            onChange={(e) =>
+                                setSelectedSlot(
+                                    timeSlotOptions.find((slot) => slot.slot === e.target.value)
+                                )
+                            }
                         >
-                            <motion.div
-                                className="bg-white text-black p-6 rounded-xl shadow-lg text-center"
-                                initial={{ scale: 0.5, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                exit={{ scale: 0.5, opacity: 0 }}
-                                transition={{ duration: 0.3, ease: "easeOut" }}
-                            >
-                                <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
-                                <p>Your order has been received.</p>
-                            </motion.div>
+                            {timeSlotOptions.map((slot, index) => (
+                                <option key={index} value={slot.slot}>
+                                    {slot.slot}
+                                </option>
+                            ))}
+                        </select>
+                        <motion.div
+                            className="text-xl font-bold text-indigo-700"
+                            key={selectedSlot.price}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            Updated Price: ${selectedSlot.price}
                         </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
-            <Footer />
-        </>
+                    </div>
+                </MotionCard>
 
+                {/* Submit Button */}
+                <motion.div
+                    className="text-center"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                >
+                    <button
+                        onClick={handlePayment}
+                        className="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-medium shadow-lg hover:bg-indigo-700 transition-all"
+                    >
+                        Complete Payment
+                    </button>
+                </motion.div>
+
+                {/* Success Modal */}
+                {showModal && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                        <motion.div
+                            initial={{ scale: 0.6, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.4 }}
+                            className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center"
+                        >
+                            <h2 className="text-2xl font-bold text-green-600 mb-2">Payment Successful 🎉</h2>
+                            <p className="text-gray-600">Redirecting you in a few seconds...</p>
+                            <div className="mt-4">
+                                <svg
+                                    className="mx-auto w-16 h-16 text-green-500 animate-pulse"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.5"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </div>
+
+            <Footer />
+        </div>
+    );
+}
+
+// Input Component
+function Input({ placeholder }) {
+    return (
+        <input
+            type="text"
+            placeholder={placeholder}
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+        />
+    );
+}
+
+// Animated Card Wrapper
+function MotionCard({ children }) {
+    return (
+        <motion.div
+            className="bg-white shadow-xl rounded-2xl p-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+        >
+            {children}
+        </motion.div>
     );
 }
