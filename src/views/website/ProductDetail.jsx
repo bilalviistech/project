@@ -16,7 +16,7 @@ const ProductDetail = () => {
     const subcategory = category?.subcategories.find(sub => sub.id == decodedSubcatName)
     const product = subcategory?.products.find(p => p.title.toLowerCase() === decodedTitle.toLowerCase());
     return (
-        <div className="bg-[#F9FAFB] min-h-screen text-gray-800 font-sans">
+        <div className="min-h-screen text-gray-800 font-sans">
             {/* Navbar */}
             <Header />
 
@@ -50,7 +50,7 @@ const ProductDetail = () => {
                         <p className="text-md font-medium text-gray-600 mb-2">Start Your Process</p>
                         <div className="space-y-4">
                             <Link to={"/checkout"}>
-                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#FF7F3E] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
+                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
                                     <FaShoppingCart /> Blank Form
                                 </button>
                             </Link>

@@ -5,7 +5,7 @@ import { FaUsers, FaBullseye, FaCheckCircle } from "react-icons/fa";
 
 const About = () => {
     return (
-        <div className="bg-blue-50 min-h-screen text-black">
+        <div className="min-h-screen text-black">
             <Header />
             <div className="bg-blue-50 text-gray-800 font-sans">
                 {/* Hero Section */}

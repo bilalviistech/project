@@ -10,6 +10,8 @@ import Contact from "@/views/website/Contact";
 import About from "@/views/website/About";
 import OurService from "@/views/website/OurService";
 import PrivacyPolicy from "@/views/website/PrivacyPolicy";
+import ReturnExchangePolicy from "@/views/website/ReturnExchangePolicy";
+import DeliveryTracking from "@/views/website/DeliveryTracking";
 
 export const WebLayout = () => {
   return (
@@ -22,8 +24,10 @@ export const WebLayout = () => {
       <Route exact path="/agreement/:id" element={<AgreementFormScreen />} />
       <Route exact path="/contact-us" element={<Contact />} />
       <Route exact path="/about-us" element={<About />} />
-      <Route exact path="/our-service" element={<OurService />} />
+      <Route exact path="/term-service" element={<OurService />} />
       <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route exact path="/return-exchange-policy" element={<ReturnExchangePolicy />} />
+      <Route exact path="/delivery-tracking" element={<DeliveryTracking />} />
     </Routes>
   );
 };

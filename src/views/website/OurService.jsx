@@ -1,87 +1,77 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import React from "react";
-import { FaCogs, FaRocket, FaUsers, FaShieldAlt } from "react-icons/fa";
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import React from 'react';
+import { FaGavel, FaShieldAlt, FaGlobeAsia, FaBalanceScale, FaExternalLinkAlt, FaExclamationCircle } from 'react-icons/fa';
 
 const OurService = () => {
     return (
-        <div className="bg-blue-50 min-h-screen text-black">
-            <Header />
-            <div className="min-h-screen bg-white text-[#122136] font-sans px-6 md:px-24 py-16">
-                <div className="max-w-5xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl font-bold text-center text-[#003092] mb-4">
-                        Our Services
+        <div>
+            <Header/>
+            <section className="bg-gradient-to-br px-4 py-12 md:px-10 lg:px-24 text-[#1f2937]">
+                <div className="max-w-5xl mx-auto bg-white rounded-xl p-6 md:p-10">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-6 text-orange-600 flex items-center gap-3">
+                        <FaGavel className="text-orange-500" /> Terms of Service
                     </h1>
-                    <p className="text-lg md:text-xl text-center text-gray-600 mb-12">
-                        Discover the range of professional legal documentation services we offer at MavDocs to simplify your legal needs.
-                    </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        {/* Service 1 */}
-                        <div className="flex items-start gap-5">
-                            <div className="bg-[#FF7F3E] p-4 rounded-full text-white text-2xl">
-                                <FaCogs />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-semibold text-[#003092] mb-2">Custom Document Drafting</h3>
-                                <p className="text-gray-700">
-                                    Get tailor-made agreements, affidavits, undertakings, and more. Our team ensures each document fits your exact legal and personal needs.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Service 2 */}
-                        <div className="flex items-start gap-5">
-                            <div className="bg-[#FF7F3E] p-4 rounded-full text-white text-2xl">
-                                <FaRocket />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-semibold text-[#003092] mb-2">Fast Delivery</h3>
-                                <p className="text-gray-700">
-                                    We understand the urgency of legal matters. Receive your documents within hours—digitally or delivered to your doorstep.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Service 3 */}
-                        <div className="flex items-start gap-5">
-                            <div className="bg-[#FF7F3E] p-4 rounded-full text-white text-2xl">
-                                <FaUsers />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-semibold text-[#003092] mb-2">Customer Support</h3>
-                                <p className="text-gray-700">
-                                    Need guidance? Our friendly support team is ready to assist you with your queries and walk you through each step of your document process.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Service 4 */}
-                        <div className="flex items-start gap-5">
-                            <div className="bg-[#FF7F3E] p-4 rounded-full text-white text-2xl">
-                                <FaShieldAlt />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-semibold text-[#003092] mb-2">Confidential & Secure</h3>
-                                <p className="text-gray-700">
-                                    Your privacy is our priority. All submitted data and documents are handled with strict confidentiality and stored securely.
-                                </p>
-                            </div>
+                    {/* Disclaimer: No Legal Advice */}
+                    <div className="mb-10">
+                        <h2 className="text-2xl font-semibold text-orange-600 flex items-center gap-2">
+                            <FaShieldAlt /> No Warranties or Legal Representation
+                        </h2>
+                        <p className="mt-2 text-gray-700">
+                            While the information on this site concerns legal matters, it does <strong>not constitute legal advice</strong> or representation. MavDocs is <strong>not a law firm</strong> and is not authorized to provide legal consultation to any user.
+                        </p>
+                        <p className="mt-2 text-gray-700">
+                            Using this site does <strong>not create an attorney-client relationship</strong> between you and MavDocs or its team. All content and functionality are provided on an <em>"as is"</em> basis without any warranties or guarantees regarding accuracy or jurisdiction-specific applicability.
+                        </p>
+                        <p className="mt-2 text-gray-700">
+                            Services may be modified or discontinued at any time without prior notice.
+                        </p>
+                        <div className="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md flex items-start gap-3">
+                            <FaExclamationCircle className="text-yellow-600 mt-1" />
+                            <p className="text-sm text-gray-800">
+                                MavDocs disclaims all liability for any direct, indirect, incidental, or consequential damages arising from the use or reliance on the website's content.
+                            </p>
                         </div>
                     </div>
 
-                    <div className="mt-16 text-center">
-                        <h2 className="text-2xl font-bold text-[#003092] mb-4">Need Something Specific?</h2>
-                        <p className="text-gray-700 text-lg mb-6">
-                            We offer flexible services for special legal document needs. Let us know your requirement, and we’ll handle the rest.
+                    {/* Copyright Notice */}
+                    <div className="mb-10">
+                        <h2 className="text-2xl font-semibold text-orange-600 flex items-center gap-2">
+                            <FaBalanceScale /> Copyright & Usage Rights
+                        </h2>
+                        <p className="mt-2 text-gray-700">
+                            All site content is protected under <strong>Government of Pakistan copyright laws</strong>. No part of this site may be copied, distributed, or reproduced without express written permission from MavDocs.
                         </p>
-                        <a href="/contact" className="inline-block px-8 py-3 bg-[#FF7F3E] text-white rounded-lg hover:bg-orange-600 transition-all">
-                            Contact Us
-                        </a>
+                        <p className="mt-2 text-gray-700">
+                            MavDocs actively monitors for copyright infringement and reserves the right to pursue legal action against any unauthorized use in <strong>federal court</strong>.
+                        </p>
+                    </div>
+
+                    {/* External Links */}
+                    <div className="mb-10">
+                        <h2 className="text-2xl font-semibold text-orange-600 flex items-center gap-2">
+                            <FaGlobeAsia /> Third Party Links & References
+                        </h2>
+                        <p className="mt-2 text-gray-700">
+                            References and external links are provided for user convenience. However, MavDocs holds <strong>no responsibility</strong> for the content, accuracy, or practices of third-party websites not owned or controlled by MavDocs.
+                        </p>
+                        <div className="mt-4 flex items-center text-blue-600 text-sm gap-2">
+                            <FaExternalLinkAlt />
+                            <span>Use third-party content at your own discretion.</span>
+                        </div>
+                    </div>
+
+                    {/* Last Note */}
+                    <div className="text-center border-t pt-6 mt-6">
+                        <p className="text-gray-700 text-sm">
+                            For legal concerns or clarifications regarding our Terms of Service, contact us at:{" "}
+                            <a href="mailto:info@mavdocs.com" className="text-blue-600 underline">info@mavdocs.com</a>
+                        </p>
                     </div>
                 </div>
-            </div>
-            <Footer />
+            </section>
+            <Footer/>
         </div>
     );
 };

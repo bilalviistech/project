@@ -228,7 +228,7 @@ const Home = () => {
         return () => clearInterval(interval);
     }, []);
     return (
-        <div className="bg-blue-50 min-h-screen text-white font-sans">
+        <div className="min-h-screen text-white font-sans">
             <Header />
             {/* Hero Section */}
             <section
@@ -244,7 +244,7 @@ const Home = () => {
 
             {/* Search Bar */}
             <div className="custom-search-section px-6 md:px-20 mx-4 md:mx-36 py-10">
-                <div className="bg-[#00246B] flex flex-col md:flex-row items-center justify-center w-full p-4 rounded-lg shadow-lg">
+                <div className="bg-[#112e5a] flex flex-col md:flex-row items-center justify-center w-full p-4 rounded-lg shadow-lg">
 
                     {/* Search Header */}
                     <div className="search-header w-full md:w-2/5 text-center md:text-left mb-4 md:mb-0">
@@ -273,7 +273,7 @@ const Home = () => {
                             {/* Search Button */}
                             <button
                                 type="submit"
-                                className="py-2 bg-[#FF7F3E] text-white px-6 text-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 transition-all rounded-r-md"
+                                className="py-2 bg-[#f5a623] text-white px-6 text-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 transition-all rounded-r-md"
                             >
                                 Search
                             </button>
@@ -284,7 +284,7 @@ const Home = () => {
             </div>
 
             {/* Cart Reviews */}
-            <section className="flex justify-center items-center text-center py-8 bg-[#00246B] mx-4 my-6 rounded-lg shadow-md">
+            <section className="flex justify-center items-center text-center py-8 bg-[#112e5a] mx-4 my-6 rounded-lg shadow-md">
                 <div className="bg-white text-black py-12 px-6 flex justify-center w-full">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl w-full">
                         {[
@@ -323,7 +323,7 @@ const Home = () => {
                 <div className="flex justify-center">
                     <Link to={"/product"}>
 
-                        <button className="bg-[#FF7F3E] text-white px-6 py-3 rounded-3xl text-lg hover:bg-[#f5a177] focus:ring-4 focus:ring-blue-300 transition-transform transform hover:translate-y-[-10px] duration-300 ease-in-out">
+                        <button className="bg-[#f5a623] text-white px-6 py-3 rounded-3xl text-lg hover:bg-[#f5a177] focus:ring-4 focus:ring-blue-300 transition-transform transform hover:translate-y-[-10px] duration-300 ease-in-out">
                             Shop Now
                         </button>
                     </Link>
@@ -373,7 +373,7 @@ const Home = () => {
                                         ${product.price}
                                     </p>
                                     <Link to={"/product-detail"}>
-                                        <button className="bg-[#FF7F3E] text-white py-2 px-4 rounded-full hover:bg-[#e06b2a] transition-all">
+                                        <button className="bg-[#f5a623] text-white py-2 px-4 rounded-full hover:bg-[#e06b2a] transition-all">
                                             Shop Now
                                         </button>
                                     </Link>
@@ -415,7 +415,7 @@ const Home = () => {
             </section>
 
             <section className="py-16 px-6 bg-[#f0f4f8] text-center">
-                <h2 className="text-3xl font-semibold text-[#00246B] mb-8">
+                <h2 className="text-3xl font-semibold text-[#112e5a] mb-8">
                     How It Works
                 </h2>
 
@@ -481,7 +481,7 @@ const Home = () => {
                                     <img
                                         src={review.image}
                                         alt={review.name}
-                                        className="w-20 h-20 rounded-full object-cover border-2 border-[#FF7F3E]"
+                                        className="w-20 h-20 rounded-full object-cover border-2 border-[#f5a623]"
                                     />
                                 </div>
                                 <div className="text-center">

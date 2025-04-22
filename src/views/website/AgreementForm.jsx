@@ -117,7 +117,7 @@ const AgreementForm = () => {
 
                   </form>
                   <Link to={"/checkout"}>
-                    <button className="mt-4 w-full bg-[#FF7F3E] text-white py-2 rounded">Go to Checkout Page</button>
+                    <button className="mt-4 w-full bg-[#f5a623] text-white py-2 rounded">Go to Checkout Page</button>
                   </Link>
                 </div>
 
@@ -264,12 +264,12 @@ const AgreementForm = () => {
 
                   </form>
                   <Link to={"/checkout"}>
-                    <button className="mt-4 w-full bg-[#FF7F3E] text-white py-2 rounded">Go to Checkout Page</button>
+                    <button className="mt-4 w-full bg-[#f5a623] text-white py-2 rounded">Go to Checkout Page</button>
                   </Link>
                 </div>
 
                 <div className="bg-white p-4 md:p-6 shadow-lg rounded-2xl relative">
-                    <img src={page2} alt="Stamp" className="w-full h-auto rounded-lg" />
+                  <img src={page2} alt="Stamp" className="w-full h-auto rounded-lg" />
                   <div className="absolute top-[23.5rem] left-[5.5rem] p-6">
                     <p className="text-xs">
                       <strong>{pageOneData.landlordName || ""}</strong>
@@ -349,10 +349,10 @@ const AgreementForm = () => {
           {/* </Link> */}
           {/* <Link to={"/checkout"}> */}
           <div>
-            <button className="mt-4 w-full bg-[#FF7F3E] text-white py-2 rounded px-2" disabled={page <= 1} onClick={() => setPage(page + 1)}>Prev Page</button>
+            <button className="mt-4 w-full bg-[#f5a623] text-white py-2 rounded px-2" disabled={page <= 1} onClick={() => setPage(page + 1)}>Prev Page</button>
           </div>
           <div>
-            <button className="mt-4 w-full bg-[#FF7F3E] text-white py-2 rounded px-2" disabled={page >= 3} onClick={() => setPage(page + 1)}>Next Page</button>
+            <button className="mt-4 w-full bg-[#f5a623] text-white py-2 rounded px-2" disabled={page >= 3} onClick={() => setPage(page + 1)}>Next Page</button>
           </div>
           {
           /* </Link> */}

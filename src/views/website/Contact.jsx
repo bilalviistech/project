@@ -1,76 +1,83 @@
-import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import React from 'react';
+import { FaComments, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
-const Contact = () => (
-    <div className="bg-blue-50 min-h-screen text-black">
-        <Header />
-        <section class="bg-blue-900 text-white py-20 px-5 md:px-20">
-            <div class="max-w-6xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-                <p class="text-lg md:text-xl text-blue-100">We'd love to hear from you. Whether you have a question, need support, or just want to say hello — we're here for you.</p>
-            </div>
-        </section>
+const Contact = () => {
+    return (
+        <div>
+            <Header/>
+            <section className="px-6 py-12 max-w-5xl mx-auto text-center">
+                {/* Top 3 Info Blocks */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div>
+                        <FaComments className="text-orange-500 text-4xl mx-auto mb-3" />
+                        <h3 className="text-lg font-semibold mb-1">Chat with us</h3>
+                        <p className="text-sm text-gray-600">Get help online or visit our FAQs for more answers.</p>
+                    </div>
 
-        {/* <!-- Contact Info & Form --> */}
-        <section class="py-16 px-5 md:px-20 bg-gray-50">
-            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-                {/* <!-- Contact Info --> */}
-                <div class="space-y-6">
-                    <h2 class="text-2xl font-semibold text-blue-900">Contact Information</h2>
-                    <p class="text-gray-600">Feel free to reach out through any of the channels below. We're available during business hours (Mon–Fri, 9AM–6PM).</p>
-                    <div class="space-y-3">
-                        <div>
-                            <p class="text-sm text-gray-500">Email</p>
-                            <p class="font-medium text-blue-900">support@example.com</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500">Phone</p>
-                            <p class="font-medium text-blue-900">+92 300 1234567</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500">Office Address</p>
-                            <p class="font-medium text-blue-900">123 Main Street, Lahore, Pakistan</p>
-                        </div>
+                    <div>
+                        <FaPhoneAlt className="text-orange-500 text-4xl mx-auto mb-3" />
+                        <h3 className="text-lg font-semibold mb-1">Call us</h3>
+                        <p className="text-sm text-gray-600">Reach customer support at <strong>+92.300 188.2235</strong>,<br />Mon – Fri, 8am – 6pm.</p>
+                        <p className="text-orange-600 mt-1 font-medium">Call customer support</p>
+                    </div>
+
+                    <div>
+                        <FaEnvelope className="text-orange-500 text-4xl mx-auto mb-3" />
+                        <h3 className="text-lg font-semibold mb-1">Email us</h3>
+                        <p className="text-sm text-gray-600">Need more information?<br />Send us a message.</p>
+                        <p className="text-orange-600 mt-1 font-medium">Send message</p>
                     </div>
                 </div>
 
-                {/* <!-- Contact Form --> */}
-                <div class="bg-white shadow-lg p-8 rounded-xl">
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" placeholder="Your Full Name" class="mt-1 block w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" placeholder="you@example.com" class="mt-1 block w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">Subject</label>
-                            <input type="text" placeholder="Subject of your message" class="mt-1 block w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">Message</label>
-                            <textarea rows="5" placeholder="Write your message here..." class="mt-1 block w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-900 text-white py-2 px-4 rounded-lg hover:bg-blue-800 transition">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+                {/* Email Form */}
+                <div className="bg-white p-6 md:p-10 rounded-lg shadow-md border max-w-3xl mx-auto">
+                    <h2 className="text-2xl font-bold mb-2 text-[#112e5a]">Email us</h2>
+                    <p className="text-gray-700 mb-6">Send a message to our custom support team.</p>
 
-        {/* <!-- Map Section --> */}
-        <section class="py-16 px-5 md:px-20">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-semibold mb-6 text-blue-900">Our Location</h2>
-                <div class="w-full h-96 rounded-lg overflow-hidden shadow-lg">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27214.92784607886!2d74.2974415!3d31.5203696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904d0d1b26a27%3A0x2c90b1c4fc40d660!2sLahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1643906198082!5m2!1sen!2s" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
+                    <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* First Name / Last Name */}
+                        <input type="text" placeholder="First name" className="border rounded px-4 py-2" required />
+                        <input type="text" placeholder="Last name" className="border rounded px-4 py-2" required />
+
+                        {/* Email - full width */}
+                        <input type="email" placeholder="Email" className="md:col-span-2 border rounded px-4 py-2" required />
+
+                        {/* Subject dropdown */}
+                        <select className="md:col-span-2 border rounded px-4 py-2" required>
+                            <option value="">Select Subject</option>
+                            <option>Document Assistance</option>
+                            <option>Order Tracking</option>
+                            <option>Refund Request</option>
+                        </select>
+
+                        {/* Message box */}
+                        <textarea rows={4} placeholder="Message" className="md:col-span-2 border rounded px-4 py-2" required />
+
+                        {/* reCAPTCHA placeholder */}
+                        <div className="md:col-span-2">
+                            <label className="flex items-center space-x-2">
+                                <input type="checkbox" required />
+                                <span>I’m not a robot</span>
+                            </label>
+                            {/* You can replace this with actual reCAPTCHA later */}
+                        </div>
+
+                        {/* Submit Button */}
+                        <button type="submit" className="md:col-span-2 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded transition">
+                            Submit
+                        </button>
+                    </form>
+
+                    <p className="mt-4 text-sm text-gray-700">
+                        Or call us at <span className="text-orange-600 font-semibold">+92.300 188 2235</span>
+                    </p>
                 </div>
-            </div>
-        </section>
-        <Footer />
-    </div>
-);
+            </section>
+            <Footer/>
+        </div>
+    );
+};
 
 export default Contact;

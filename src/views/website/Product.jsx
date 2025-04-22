@@ -27,15 +27,15 @@ const Product = () => {
         return () => clearInterval(interval);
     }, []);
     return (
-        <div className="bg-blue-50 min-h-screen text-white font-sans">
+        <div className="min-h-screen text-white font-sans">
             <Header />
             <div className="text-center py-8">
-                <h1 className="text-4xl font-bold text-[#FF7F3E]">Our Documents</h1>
+                <h1 className="text-4xl font-bold text-[#f5a623]">Our Documents</h1>
                 <p className="text-lg mt-2 text-black">Select, complete the details, and order your legal document draft. MavDocs ensures reliable, free delivery of your documents to your doorstep within hours</p>
             </div>
 
             <div className="custom-search-section px-6 md:px-20 mx-4 md:mx-36">
-                <div className="bg-[#00246B] flex flex-col md:flex-row items-center justify-center w-full p-4 rounded-lg shadow-lg">
+                <div className="bg-[#112e5a] flex flex-col md:flex-row items-center justify-center w-full p-4 rounded-lg shadow-lg">
 
                     {/* Search Header */}
                     <div className="search-header w-full md:w-2/5 text-center md:text-left mb-4 md:mb-0">
@@ -64,7 +64,7 @@ const Product = () => {
                             {/* Search Button */}
                             <button
                                 type="submit"
-                                className="py-2 bg-[#FF7F3E] text-white px-6 text-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 transition-all rounded-r-md"
+                                className="py-2 bg-[#f5a623] text-white px-6 text-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 transition-all rounded-r-md"
                             >
                                 Search
                             </button>
@@ -75,17 +75,20 @@ const Product = () => {
             </div>
 
             {/* Category Tabs */}
-            <div className="flex justify-center gap-6 m-3">
-                {mycategories.map((category, index) => (
-                    <button
-                        key={index}
-                        className="px-6 py-3 bg-[#FF7F3E] text-white rounded-full shadow-md hover:bg-orange-600 transition-all text-lg font-semibold"
-                        onClick={() => catChangeHandler(category)}
-                    >
-                        {category.name}
-                    </button>
-                ))}
+            <div className="overflow-x-auto">
+                <div className="flex sm:justify-center gap-4 sm:gap-6 m-3 px-2 w-max sm:w-auto">
+                    {mycategories.map((category, index) => (
+                        <button
+                            key={index}
+                            className="whitespace-nowrap px-5 py-2.5 bg-[#f5a623] text-white rounded-full shadow-md hover:bg-orange-600 transition-all text-base sm:text-lg font-semibold"
+                            onClick={() => catChangeHandler(category)}
+                        >
+                            {category.name}
+                        </button>
+                    ))}
+                </div>
             </div>
+
 
             {/* Product List */}
             {catState == "Agreement" && (
@@ -131,7 +134,7 @@ const Product = () => {
                                                     {/* Order Button */}
                                                     <div className="mt-6 text-right">
                                                         <Link to={`/product-detail/${category.id}/${subcat.id}/${product.title}`}>
-                                                            <button className="px-6 py-2 bg-[#FF7F3E] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
+                                                            <button className="px-6 py-2 bg-[#f5a623] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
                                                                 <FaShoppingCart /> Order Now
                                                             </button>
                                                         </Link>
@@ -189,12 +192,12 @@ const Product = () => {
                                                     {/* Order Button */}
                                                     <div className="mt-6 text-right">
                                                         <Link to={`/product-detail/${category.id}/${subcat.id}/${product.title}`}>
-                                                            <button className="px-6 py-2 bg-[#FF7F3E] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
+                                                            <button className="px-6 py-2 bg-[#f5a623] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
                                                                 <FaShoppingCart /> Order Now
                                                             </button>
                                                         </Link>
                                                         {/* <Link to={`/agreement/${product.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                                                            <button className="px-6 py-2 bg-[#FF7F3E] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
+                                                            <button className="px-6 py-2 bg-[#f5a623] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
                                                                 <FaShoppingCart /> Order Now
                                                             </button>
                                                         </Link> */}
