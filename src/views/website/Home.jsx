@@ -21,133 +21,135 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; // Import Swiper's core CSS
 import 'swiper/css/navigation'; // Navigation styles (optional)
 import 'swiper/css/pagination'; // Pagination styles (optional)
+import banner1 from "@/assets/images/banner1.jpg"
+import one80Design from "@/assets/images/180 Design.png"
+import AhmekStore from "@/assets/images/Ahmek Store.png"
+import HumanThatWrites from "@/assets/images/Human That Writes.png"
+import Saassociate from "@/assets/images/Sa associate.jpg"
+import UmarRealEstate from "@/assets/images/Umar Real Estate.png"
+import productImg from "@/assets/images/productImg.jpg"
 
 // Sample partner data
 const partners = [
-    { name: "Nike", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "Adidas", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "KFC", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "Puma", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "Coca-Cola", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "Pepsi", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "McDonald's", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "Samsung", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" },
-    { name: "Sony", logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" }
+    { name: "180 Design", logo: one80Design },
+    { name: "Ahmek Store", logo: AhmekStore },
+    { name: "Human That Writes", logo: HumanThatWrites },
+    { name: "Sa Associate", logo: Saassociate },
+    { name: "Umar Real Estate", logo: UmarRealEstate },
 ];
 
 const products = [
     {
-        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
-        name: 'Product 1',
-        shortDescription: 'This is a short description of product 1.',
+        image: productImg,
+        name: 'Residential Rental Agreement',
+        shortDescription: 'Best Seller',
         price: '49.99',
     },
     {
-        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
-        name: 'Product 2',
-        shortDescription: 'This is a short description of product 2.',
+        image: productImg,
+        name: 'Change of Name Affidavit',
+        shortDescription: 'Best Seller',
         price: '79.99',
     },
     {
-        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
-        name: 'Product 3',
-        shortDescription: 'This is a short description of product 3.',
+        image: productImg,
+        name: 'Address Proof Affidavit',
+        shortDescription: 'Best Seller',
         price: '29.99',
     },
     {
-        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
-        name: 'Product 4',
-        shortDescription: 'This is a short description of product 4.',
+        image: productImg,
+        name: 'Sale Full & Final Agreement',
+        shortDescription: 'Best Seller',
         price: '99.99',
     },
     {
-        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
-        name: 'Product 5',
-        shortDescription: 'This is a short description of product 5.',
+        image: productImg,
+        name: 'Affidavit for Duplicate Document',
+        shortDescription: 'Best Seller',
         price: '59.99',
     },
-    {
-        image: 'https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg',
-        name: 'Product 6',
-        shortDescription: 'This is a short description of product 6.',
-        price: '39.99',
-    },
+    // {
+    //     image: productImg,
+    //     name: 'Product 6',
+    //     shortDescription: 'This is a short description of product 6.',
+    //     price: '39.99',
+    // },
 ];
 
 
 // Sample data for customer reviews
 const reviews = [
     {
-        name: "John Doe",
+        name: "Fahad Mehmood",
         image: "https://randomuser.me/api/portraits/men/1.jpg", // Replace with actual images
         rating: 5,
         description:
-            "Great product! Highly recommend it to anyone looking for quality and reliability.",
+            "Bhai zabardast service hai! Form bharna asaan tha aur document time pe mil gaya. Pehli dafa kisi online legal service pe itna trust feel hua.",
     },
     {
-        name: "Jane Smith",
+        name: "Sana Khalid",
         image: "https://randomuser.me/api/portraits/women/2.jpg", // Replace with actual images
         rating: 4,
         description:
-            "Very satisfied with the service. A few minor issues, but overall a positive experience.",
+            "Very impressed. The document was accurate, neatly printed, and came with everything I needed, even the envelope. Saved me so much time and hassle.",
     },
     {
-        name: "Mark Wilson",
+        name: "Abdullah Aslam",
         image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
         rating: 5,
         description:
-            "Excellent customer support. The product exceeded my expectations in every way!",
+            "Really impressed.The whole thing was smooth and quick, no complications at all.I’ve already told a few people around me to try it too.Honestly, this kind of service was much needed.",
     },
-    {
-        name: "Mark Wilson",
-        image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
-        rating: 5,
-        description:
-            "Excellent customer support. The product exceeded my expectations in every way!",
-    },
-    {
-        name: "Mark Wilson",
-        image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
-        rating: 5,
-        description:
-            "Excellent customer support. The product exceeded my expectations in every way!",
-    },
-    {
-        name: "Mark Wilson",
-        image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
-        rating: 5,
-        description:
-            "Excellent customer support. The product exceeded my expectations in every way!",
-    },
-    {
-        name: "Mark Wilson",
-        image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
-        rating: 5,
-        description:
-            "Excellent customer support. The product exceeded my expectations in every way!",
-    },
-    {
-        name: "Mark Wilson",
-        image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
-        rating: 5,
-        description:
-            "Excellent customer support. The product exceeded my expectations in every way!",
-    },
-    {
-        name: "Mark Wilson",
-        image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
-        rating: 5,
-        description:
-            "Excellent customer support. The product exceeded my expectations in every way!",
-    },
-    {
-        name: "Mark Wilson",
-        image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
-        rating: 5,
-        description:
-            "Excellent customer support. The product exceeded my expectations in every way!",
-    },
+    // {
+    //     name: "Mark Wilson",
+    //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
+    //     rating: 5,
+    //     description:
+    //         "Excellent customer support. The product exceeded my expectations in every way!",
+    // },
+    // {
+    //     name: "Mark Wilson",
+    //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
+    //     rating: 5,
+    //     description:
+    //         "Excellent customer support. The product exceeded my expectations in every way!",
+    // },
+    // {
+    //     name: "Mark Wilson",
+    //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
+    //     rating: 5,
+    //     description:
+    //         "Excellent customer support. The product exceeded my expectations in every way!",
+    // },
+    // {
+    //     name: "Mark Wilson",
+    //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
+    //     rating: 5,
+    //     description:
+    //         "Excellent customer support. The product exceeded my expectations in every way!",
+    // },
+    // {
+    //     name: "Mark Wilson",
+    //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
+    //     rating: 5,
+    //     description:
+    //         "Excellent customer support. The product exceeded my expectations in every way!",
+    // },
+    // {
+    //     name: "Mark Wilson",
+    //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
+    //     rating: 5,
+    //     description:
+    //         "Excellent customer support. The product exceeded my expectations in every way!",
+    // },
+    // {
+    //     name: "Mark Wilson",
+    //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
+    //     rating: 5,
+    //     description:
+    //         "Excellent customer support. The product exceeded my expectations in every way!",
+    // },
     // Add more reviews as needed
 ];
 
@@ -233,13 +235,9 @@ const Home = () => {
             {/* Hero Section */}
             <section
                 className="relative bg-cover bg-center shadow-lg overflow-hidden"
-                style={{
-                    backgroundImage:
-                        "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZmqc2L6AhKpBi1IU0gO_XQ_oMThJFS16wzw&s)",
-                    height: "50vh", // Make the banner take up the full viewport height
-                }}
+                style={{ backgroundImage: `url(${banner1})`, height: '50vh' }}
             >
-                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div>
+                {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div> */}
             </section>
 
             {/* Search Bar */}
@@ -302,7 +300,7 @@ const Home = () => {
                             },
                         ].map(({ icon, text }, index) => (
                             <div key={index} className="flex items-center justify-center space-x-3 rounded-lg">
-                                <div className="bg-orange-400 rounded-full p-3 text-white">
+                                <div className="bg-[#f5a623] rounded-full p-3 text-white">
                                     {icon}
                                 </div>
                                 <span className="text-lg font-medium text-black">{text}</span>
@@ -315,16 +313,16 @@ const Home = () => {
             {/* Button */}
             <section className="flex flex-col items-center justify-center py-10">
                 {/* Heading */}
-                <div className="mb-4 text-center">
+                {/* <div className="mb-4 text-center">
                     <h2 className="text-base font-semibold text-gray-800">Add Your Heading Text Here</h2>
-                </div>
+                </div> */}
 
                 {/* Button */}
                 <div className="flex justify-center">
                     <Link to={"/product"}>
 
                         <button className="bg-[#f5a623] text-white px-6 py-3 rounded-3xl text-lg hover:bg-[#f5a177] focus:ring-4 focus:ring-blue-300 transition-transform transform hover:translate-y-[-10px] duration-300 ease-in-out">
-                            Shop Now
+                            Order Document
                         </button>
                     </Link>
                 </div>
@@ -332,7 +330,7 @@ const Home = () => {
 
             <section className="py-16 px-6 bg-[#f7f7f7] text-center">
                 <h2 className="text-3xl font-semibold text-[#003092] mb-8">
-                    Our Featured Products
+                    Best Seller
                 </h2>
 
                 <Swiper
@@ -374,7 +372,7 @@ const Home = () => {
                                     </p>
                                     <Link to={"/product-detail"}>
                                         <button className="bg-[#f5a623] text-white py-2 px-4 rounded-full hover:bg-[#e06b2a] transition-all">
-                                            Shop Now
+                                            Order Now
                                         </button>
                                     </Link>
                                 </div>
@@ -416,7 +414,7 @@ const Home = () => {
 
             <section className="py-16 px-6 bg-[#f0f4f8] text-center">
                 <h2 className="text-3xl font-semibold text-[#112e5a] mb-8">
-                    How It Works
+                    How we works
                 </h2>
 
                 <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
@@ -441,7 +439,7 @@ const Home = () => {
                             <iframe
                                 width="100%"
                                 height="315"
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Replace with your video URL
+                                src="https://drive.google.com/file/d/1_W1bEG4zyxJJ72ulXGTbhdevm8l4qp7Y/view" // Replace with your video URL
                                 title="How It Works Video"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -476,7 +474,7 @@ const Home = () => {
                 >
                     {reviews.map((review, index) => (
                         <SwiperSlide key={index}>
-                            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                            <div className="bg-white min-h-80 max-h-80 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
                                 <div className="flex justify-center mb-4">
                                     <img
                                         src={review.image}

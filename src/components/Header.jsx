@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import whiteLogo from "@/assets/images/whiteLogo.png"
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -11,10 +12,10 @@ const Header = () => {
                 {/* Logo */}
                 <div className="text-[#f5a623] text-2xl font-extrabold">
                     <Link to="/"><img
-                        src="https://testdeveloplink.com/document/wp-content/uploads/2024/12/mavdocs-logo-1.png"
+                        src={whiteLogo}
                         alt="MavDocs Logo"
-                        width={150}
-                        height={150}
+                        width={175}
+                        height={175}
                     /></Link>
                 </div>
 

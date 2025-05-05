@@ -104,26 +104,32 @@ const Product = () => {
                                     <div key={subIndex} className="mb-10">
                                         <h3 className="text-2xl font-bold text-[#003092] mb-4">{subcat.name}</h3>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
                                             {subcat.products.map((product, prodIndex) => (
                                                 <div
                                                     key={prodIndex}
-                                                    className="bg-white text-black rounded-lg shadow border border-gray-200 p-6 relative flex flex-col justify-between h-full"
+                                                    className="bg-white text-black rounded-lg shadow border border-gray-200 p-4 md:p-6 relative flex flex-col justify-between h-full"
                                                 >
-                                                    {/* Price Badge on Top Right */}
-                                                    <div className="absolute top-4 right-4 text-right">
-                                                        <p className="text-sm text-gray-500 font-medium">Initial Price</p>
-                                                        <p className="text-lg font-semibold text-[#003092]">Rs {product.price}</p>
-                                                        <img src={product.url} alt="" width={200} className="mt-7 md:mt-7 sm:mt-5 rounded-lg" />
+                                                    {/* Price Badge and Image */}
+                                                    <div className="absolute top-4 right-4 text-right space-y-2">
+                                                        <div>
+                                                            <p className="text-xs md:text-sm text-gray-500 font-medium">Initial Price</p>
+                                                            <p className="text-base md:text-lg font-semibold text-[#003092]">Rs {product.price}</p>
+                                                        </div>
+                                                        <img
+                                                            src={product.url}
+                                                            alt={product.title}
+                                                            className="w-20 md:w-28 lg:w-32 rounded-md object-cover"
+                                                        />
                                                     </div>
 
                                                     {/* Product Content */}
-                                                    <div>
-                                                        <h3 className="text-xl font-bold text-[#003092] mb-2">{product.title}</h3>
-                                                        <p className="text-sm text-gray-600 mb-4">{product.details || "Professional legal draft prepared by our experts."}</p>
+                                                    <div className="mt-28 md:mt-32">
+                                                        <h3 className="text-lg md:text-xl font-bold text-[#003092] mb-2 sm:w-[20px]">{product.title}</h3>
+                                                        <p className="text-xs md:text-sm text-gray-600 mb-4">{product.details || "Professional legal draft prepared by our experts."}</p>
 
                                                         <p className="font-semibold text-sm mb-2">What's The Process:</p>
-                                                        <ul className="list-none space-y-1 text-sm text-gray-700">
+                                                        <ul className="list-none space-y-1 text-xs md:text-sm text-gray-700">
                                                             <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Select Status</li>
                                                             <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enter Nominee Details</li>
                                                             <li className="flex items-start"><span className="text-green-500 mr-2">✔</span>Enter Delivery Address</li>
@@ -134,7 +140,7 @@ const Product = () => {
                                                     {/* Order Button */}
                                                     <div className="mt-6 text-right">
                                                         <Link to={`/product-detail/${category.id}/${subcat.id}/${product.title}`}>
-                                                            <button className="px-6 py-2 bg-[#f5a623] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
+                                                            <button className="w-full justify-center md:w-auto px-4 py-2 bg-[#f5a623] text-white rounded hover:bg-orange-600 transition-all text-sm font-semibold flex items-center gap-2">
                                                                 <FaShoppingCart /> Order Now
                                                             </button>
                                                         </Link>
@@ -142,6 +148,7 @@ const Product = () => {
                                                 </div>
                                             ))}
                                         </div>
+
                                     </div>
                                 ))}
                             </div>

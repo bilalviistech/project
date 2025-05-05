@@ -1,3 +1,5 @@
+import productImg from "@/assets/images/productImg.jpg";
+
 export const mycategories = [
   {
     id: 1,
@@ -25,18 +27,24 @@ export const products = [
         products: [
           {
             title: "Residental Rental Agreement",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 499,
+            details:
+              "A legal contract defining the terms & conditions of both landlord and tenant for residential property occupancy.",
+            url: productImg,
           },
           {
             title: "Commercial Rental Agreement",
-            price: 783,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 549,
+            details:
+              "A legal contract defining the terms & conditions for leasing commercial property between landlord and tenant.",
+            url: productImg,
           },
           {
             title: "Guest House Rental Agreement",
-            price: 182,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 549,
+            details:
+              "A legal contract defining the terms & conditions of  temporary occupancy between the guest house owner and occupant.",
+            url: productImg,
           },
         ],
       },
@@ -45,14 +53,18 @@ export const products = [
         name: "Property Sale & Purchase Agreement",
         products: [
           {
-            title: "Sale Agreement Part Payment",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            title: "Sale Part Payment Agreement",
+            price: 499,
+            details:
+              "A legal contract documenting the transfer of property ownership subject to partial payment and defined payment terms.",
+            url: productImg,
           },
           {
-            title: "Sale Agreement Full & Final",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            title: "Sale Full & Final Agreement",
+            price: 549,
+            details:
+              "A final contract confirming the complete settlement and unconditional transfer of property ownership from seller to buyer.",
+            url: productImg,
           },
         ],
       },
@@ -62,13 +74,17 @@ export const products = [
         products: [
           {
             title: "Car Rental Agreement",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 499,
+            details:
+              "A legal contract defining the terms and conditions for temporary use of a vehicle by the renter.",
+            url: productImg,
           },
           {
             title: "Car Leasing Agreement",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 549,
+            details:
+              "A legal contract defining the terms and conditions for full and final transfer of vehicle ownership from seller to buyer.",
+            url: productImg,
           },
         ],
       },
@@ -85,33 +101,45 @@ export const products = [
         products: [
           {
             title: "Address Proof Affidavit",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            details:
+              "A sworn legal declaration that confirms an individual's current residential address.",
+            url: productImg,
           },
           {
             title: "Change of Signature",
-            price: 783,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that confirms the change or update of an individual's signature.",
+            url: productImg,
           },
           {
-            title: "Proof of Income",
-            price: 182,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            title: "Proof of Income Affidavit",
+            price: 399,
+            detail:
+              "A sworn legal declaration that verifies an individual's source and level of income.",
+            url: productImg,
           },
           {
             title: "Proof of Date of Birth Affidavit",
-            price: 182,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that confirms the accurate date of birth of the declarant.",
+            url: productImg,
           },
           {
             title: "Loss of Document Affidavit",
-            price: 182,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that reports the loss or misplacement of an official document.",
+            url: productImg,
           },
           {
             title: "Affidavit for Duplicate Document",
-            price: 182,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that requests the issuance of a duplicate for a lost or damaged document.",
+            url: productImg,
           },
         ],
       },
@@ -121,23 +149,31 @@ export const products = [
         products: [
           {
             title: "Change of Name",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that formalizes the change of a person's name.",
+            url: productImg,
           },
           {
             title: "Change of Name after Marriage",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that affirms a woman's name change following marriage.",
+            url: productImg,
           },
           {
             title: "One & the Same Person",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that confirms multiple names or identities refer to one individual.",
+            url: productImg,
           },
           {
             title: "Name Correction Affidavit",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that requests correction of a misspelled or misprinted name in records.",
+            url: productImg,
           },
         ],
       },
@@ -147,23 +183,29 @@ export const products = [
         products: [
           {
             title: "Gap Year Affidavit",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that explains the reason for a break in academic studies.",
+            url: productImg,
           },
           {
             title: "Education Loan Affidavit",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail:
+              "A sworn legal declaration that supports an individual's application for an education loan.",
+            url: productImg,
           },
           {
             title: "Loss of Certificates Affidavit",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail: "A sworn legal declaration that reports the loss of academic certificates or mark sheets.",
+            url: productImg,
           },
           {
             title: "Non political affiliation Affidavit",
-            price: 123,
-            url: "https://testdeveloplink.com/document/wp-content/uploads/2025/01/aaiz-bhai.jpg",
+            price: 399,
+            detail: "A sworn legal declaration that confirms the individual has no political association.",
+            url: productImg,
           },
         ],
       },
