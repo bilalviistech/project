@@ -61,7 +61,7 @@ const ProductDetail = () => {
                     </h2>
 
                     <div className="mb-4">
-                        <label className="text-lg font-semibold text-gray-600 block mb-1">Choose Agreement Price</label>
+                        <label className="text-lg font-semibold text-gray-600 block mb-1">Select Your Agreement</label>
                         <select
                             className="w-full md:w-1/3 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003092]"
                             value={selectedPrice}
