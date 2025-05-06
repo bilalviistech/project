@@ -101,6 +101,20 @@ const reviews = [
         description:
             "Really impressed.The whole thing was smooth and quick, no complications at all.I’ve already told a few people around me to try it too.Honestly, this kind of service was much needed.",
     },
+    {
+        name: "Muhammad Bial",
+        image: "https://randomuser.me/api/portraits/men/1.jpg", // Replace with actual images
+        rating: 5,
+        description:
+            "Very impressed. The document was accurate, neatly printed, and came with everything I needed, even the envelope. Saved me so much time and hassle.",
+    },
+    {
+        name: "Asma Muneer",
+        image: "https://randomuser.me/api/portraits/women/2.jpg", // Replace with actual images
+        rating: 4,
+        description:
+            "Very impressed. The document was accurate, neatly printed, and came with everything I needed, even the envelope. Saved me so much time and hassle.",
+    },
     // {
     //     name: "Mark Wilson",
     //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
@@ -233,10 +247,15 @@ const Home = () => {
         <div className="min-h-screen text-white font-sans">
             <Header />
             {/* Hero Section */}
-            <section
+            {/* <section
                 className="relative bg-cover bg-center shadow-lg overflow-hidden"
                 style={{ backgroundImage: `url(${banner1})`, height: '50vh' }}
             >
+            </section> */}
+            <section
+                className="relative bg-cover bg-center shadow-lg overflow-hidden"
+            >
+                <img src={banner1} alt="" className="w-full object-contain"/>
                 {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div> */}
             </section>
 
@@ -282,8 +301,8 @@ const Home = () => {
             </div>
 
             {/* Cart Reviews */}
-            <section className="flex justify-center items-center text-center py-8 bg-[#112e5a] mx-4 my-6 rounded-lg shadow-md">
-                <div className="bg-white text-black py-12 px-6 flex justify-center w-full">
+            <section className="flex justify-center items-center text-center py-8 bg-[#112e5a] mx-4 my-3 rounded-lg shadow-md">
+                <div className="bg-white text-black py-6 px-6 flex justify-center w-full">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl w-full">
                         {[
                             {
@@ -311,14 +330,14 @@ const Home = () => {
             </section>
 
             {/* Button */}
-            <section className="flex flex-col items-center justify-center py-10">
+            <section className="flex flex-col items-center justify-center py-5">
                 {/* Heading */}
                 {/* <div className="mb-4 text-center">
                     <h2 className="text-base font-semibold text-gray-800">Add Your Heading Text Here</h2>
                 </div> */}
 
                 {/* Button */}
-                <div className="flex justify-center">
+                <div className="flex justify-center mb-4">
                     <Link to={"/product"}>
 
                         <button className="bg-[#f5a623] text-white px-6 py-3 rounded-3xl text-lg hover:bg-[#f5a177] focus:ring-4 focus:ring-blue-300 transition-transform transform hover:translate-y-[-10px] duration-300 ease-in-out">
@@ -328,8 +347,8 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="py-16 px-6 bg-[#f7f7f7] text-center">
-                <h2 className="text-3xl font-semibold text-[#003092] mb-8">
+            <section className="py-7 px-6 bg-[#f7f7f7] text-center">
+                <h2 className="text-3xl font-bold text-[#003092] mb-8">
                     Best Seller
                 </h2>
 
@@ -352,16 +371,16 @@ const Home = () => {
                 >
                     {products.map((product, index) => (
                         <SwiperSlide key={index}>
-                            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
                                 <div className="flex justify-center mb-4">
                                     <img
                                         src={product.image}
                                         alt={product.name}
-                                        className="w-96 h-64 object-cover rounded-lg"
+                                        className="w-96 h-64 object-contain rounded-xl"
                                     />
                                 </div>
                                 <div className="text-center">
-                                    <h3 className="text-xl font-semibold text-[#003092] mb-2">
+                                    <h3 className="text-xl font-semibold text-[#003092] mb-2 h-14">
                                         {product.name}
                                     </h3>
                                     <p className="text-gray-500 text-sm mb-2">
@@ -385,15 +404,17 @@ const Home = () => {
 
             {/* Best Seller Section */}
 
-            <section className="text-center py-8 mx-4 my-6 rounded-lg shadow-md">
-                <h2 className="text-2xl text-black font-semibold mb-6">Our Partners</h2>
+            <section className="text-center pb-10  mx-4 my-6 rounded-lg shadow-md">
+                <h2 className="text-3xl font-bold text-[#003092] mb-8">Our Partners</h2>
                 <Swiper
-                    spaceBetween={50} // Space between slides
-                    slidesPerView={4} // Number of slides visible at a time
+                    spaceBetween={10} // Space between slides
+                    slidesPerView={5} // Number of slides visible at a time
                     breakpoints={{
+                        320: { slidesPerView: 2 },
                         640: { slidesPerView: 2 },
-                        768: { slidesPerView: 3 },
+                        768: { slidesPerView: 4 },
                         1024: { slidesPerView: 4 },
+                        1440: { slidesPerView: 5 },
                     }}
                     loop={true} // Infinite loop effect
                     autoplay={{
@@ -412,8 +433,8 @@ const Home = () => {
                 </Swiper>
             </section>
 
-            <section className="py-16 px-6 bg-[#f0f4f8] text-center">
-                <h2 className="text-3xl font-semibold text-[#112e5a] mb-8">
+            <section className="pt-8 pb-10 px-6 bg-[#f0f4f8] text-center">
+                <h2 className="text-3xl font-bold text-[#003092] mb-8">
                     How we works
                 </h2>
 
@@ -450,8 +471,8 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="py-16 px-6 bg-[#f7f7f7] text-center">
-                <h2 className="text-3xl font-semibold text-[#003092] mb-8">
+            <section className="pt-8 px-6 bg-[#f7f7f7] text-center">
+                <h2 className="text-3xl font-bold text-[#003092] mb-8">
                     What Our Customers Say
                 </h2>
 
@@ -459,15 +480,24 @@ const Home = () => {
                     spaceBetween={30} // Space between slides
                     slidesPerView={1} // Number of slides visible at a time
                     loop={true} // Infinite loop effect
-                    autoplay={{ delay: 3000 }} // Auto play for the slider
+                    autoplay={{ delay: 300 }} // Auto play for the slider
                     breakpoints={{
+                        320: {
+                            slidesPerView: 1, // 2 slides on small screens
+                        },
+                        425: {
+                            slidesPerView: 1, // 2 slides on small screens
+                        },
                         640: {
                             slidesPerView: 2, // 2 slides on small screens
                         },
                         768: {
-                            slidesPerView: 3, // 3 slides on medium screens
+                            slidesPerView: 2, // 3 slides on medium screens
                         },
                         1024: {
+                            slidesPerView: 3, // 4 slides on large screens
+                        },
+                        1440: {
                             slidesPerView: 4, // 4 slides on large screens
                         },
                     }}
@@ -511,8 +541,8 @@ const Home = () => {
                 </Swiper>
             </section>
 
-            <section className="py-16 px-6 bg-[#f7f7f7] text-center">
-                <h2 className="text-3xl font-semibold text-[#003092] mb-8">
+            <section className="pt-10 pb-5 px-6 text-center">
+                <h2 className="text-3xl font-bold text-[#003092] mb-8">
                     Latest Blog Posts
                 </h2>
 
