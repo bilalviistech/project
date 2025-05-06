@@ -4,26 +4,31 @@ import { Link, useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { products } from "../../constant/data"
+import truncate from 'html-truncate';
 
 const ProductDetail = () => {
     const { id, subcatId, productTitle } = useParams();
-    
+
     const priceOptions = [100, 150, 200];
-    
+
     const decodedSubcatName = subcatId.replace(/-/g, " ");
     const decodedTitle = productTitle.replace(/-/g, " ");
-    
+
     // Find matching product
     const category = products.find(cat => cat.categoryId === Number(id));
-    console.log("this is category", category)
     const subcategory = category?.subcategories.find(sub => sub.id == decodedSubcatName)
-    console.log("this is category", subcategory)
     const product = subcategory?.products.find(p => p.title.toLowerCase() === decodedTitle.toLowerCase());
-    console.log("this is product", product)
     const [selectedPrice, setSelectedPrice] = useState({
         price: product.price,
         previous: 0
     });
+
+    const [showFull, setShowFull] = useState(false);
+    const previewLimit = 300;
+
+    const truncatedHtml = truncate(product.longDetail, previewLimit);
+
+    const isTruncated = product.longDetail.length > previewLimit;
 
     const priceHandler = (value) => {
         setSelectedPrice((prev) => {
@@ -78,11 +83,35 @@ const ProductDetail = () => {
 
                     <div className="mb-6">
                         <p className="text-xl font-semibold text-gray-700 mb-2">Product Description</p>
-                        <p className="text-base text-gray-600 leading-relaxed">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat enim beatae excepturi dolores id reprehenderit ratione ex, repellat, molestias minima ipsam. Saepe repellat ipsa molestias iusto ratione id deleniti suscipit.
-                            Rem, tenetur odit? Saepe placeat impedit harum! Accusamus, natus voluptatum voluptate illo amet adipisci, in asperiores suscipit eligendi, optio repellat modi recusandae. Beatae ipsa nemo itaque sunt dolorum repellendus quas?
-                            Rem assumenda maxime, reprehenderit ab illum obcaecati, blanditiis repellat, repudiandae veritatis quibusdam corrupti adipisci cupiditate? Beatae fugiat deleniti dolor tenetur soluta, nulla distinctio excepturi non debitis mollitia, exercitationem iusto ex?
-                        </p>
+                        <div className="text-gray-700">
+                            {!showFull ? (
+                                <>
+                                    <div
+                                        dangerouslySetInnerHTML={{ __html: truncatedHtml }}
+                                    />
+                                    {isTruncated && (
+                                        <button
+                                            onClick={() => setShowFull(true)}
+                                            className="text-blue-600 mt-2"
+                                        >
+                                            See More
+                                        </button>
+                                    )}
+                                </>
+                            ) : (
+                                <>
+                                    <div
+                                        dangerouslySetInnerHTML={{ __html: product.longDetail }}
+                                    />
+                                    <button
+                                        onClick={() => setShowFull(false)}
+                                        className="text-blue-600 mt-2"
+                                    >
+                                        See Less
+                                    </button>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </div>
 
@@ -92,12 +121,14 @@ const ProductDetail = () => {
                         <div className="space-y-4">
                             <Link to={"/checkout"}>
                                 <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
-                                    <FaShoppingCart /> Blank Form
+                                    <FaShoppingCart />
+                                    <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
                                 </button>
                             </Link>
                             <Link to={""}>
-                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all">
-                                    <FaShoppingCart /> Coming Soon
+                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-not-allowed">
+                                    <FaShoppingCart />
+                                    <span className="">Get Typed Document <span className="block">(Fill Online Now)</span></span>
                                 </button>
                             </Link>
                             {/* {product?.url && (
