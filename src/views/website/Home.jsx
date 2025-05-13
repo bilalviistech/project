@@ -8,7 +8,7 @@ import {
     FaBlog,
     FaUsers,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import noImage from "@/assets/images/noImage.jpg";
 import {
     FaArrowDown,
@@ -231,6 +231,16 @@ const Home = () => {
     const [currentText, setCurrentText] = useState("Search Your Agreement");
     const textArray = ["Search Your Agreement", "Search Your Affidavit", "Search Your Undertaking", "Search Your Promissory Note", "Customize Document"];
 
+    const [searchText, setSearchText] = useState('');
+    const navigate = useNavigate();
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchText.trim()) {
+            navigate(`/product?search=${encodeURIComponent(searchText.trim())}`);
+        }
+    };
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentText((prevText) => {
@@ -272,28 +282,26 @@ const Home = () => {
 
                     {/* Search Form Container */}
                     <div className="search-form-container w-full md:w-2/4">
-                        <form onSubmit={(e) => e.preventDefault()} className="flex items-center justify-center md:justify-start">
+                        <form onSubmit={handleSearch} className="flex items-center justify-center md:justify-start">
 
                             {/* Search Input */}
-                            <div className=" w-full md:w-3/4">
-                                <input
-                                    id=""
-                                    type="search"
-                                    placeholder="Find Your Document..."
-                                    autoComplete="off"
-                                    role="combobox"
-                                    aria-autocomplete="list"
-                                    className="w-full px-4 py-2 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                />
-                            </div>
-
-                            {/* Search Button */}
-                            <button
-                                type="submit"
-                                className="py-2 bg-[#f5a623] text-white px-6 text-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 transition-all rounded-r-md"
-                            >
-                                Search
-                            </button>
+                            
+                                <div className="w-full md:w-3/4">
+                                    <input
+                                        type="search"
+                                        placeholder="Find Your Document..."
+                                        autoComplete="off"
+                                        value={searchText}
+                                        onChange={(e) => setSearchText(e.target.value)}
+                                        className="w-full px-4 py-2 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-black"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="py-2 bg-[#f5a623] text-white px-6 text-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 transition-all rounded-r-md"
+                                >
+                                    Search
+                                </button>
 
                         </form>
                     </div>

@@ -16,6 +16,7 @@ const Header = () => {
                         alt="MavDocs Logo"
                         width={175}
                         height={175}
+                        className='object-contain'
                     /></Link>
                 </div>
 

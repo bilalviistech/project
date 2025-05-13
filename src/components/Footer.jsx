@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaTiktok, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import whiteLogo from "@/assets/images/whiteLogo.png"
 
 const Footer = () => {
     return (
@@ -10,10 +11,10 @@ const Footer = () => {
                 <div className="flex flex-col items-center md:items-start">
                     <Link to="/">
                         <img
-                            src="https://testdeveloplink.com/document/wp-content/uploads/2024/12/mavdocs-logo-1.png"
+                            src={whiteLogo}
                             alt="Logo"
                             width={250}
-                            className=""
+                            className="object-contain"
                         /></Link>
                     <p className="text-sm text-gray-300 mb-4">
                         <span className="font-extrabold">MavDocs.com</span> is a legal tech platform and  not a law firm or accounting firm and does not provide legal, tax, or accounting advice. The content, materials, documents, and templates available on this website are intended solely for informational and educational purposes

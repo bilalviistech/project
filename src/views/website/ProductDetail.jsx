@@ -9,7 +9,20 @@ import truncate from 'html-truncate';
 const ProductDetail = () => {
     const { id, subcatId, productTitle } = useParams();
 
-    const priceOptions = [100, 150, 200];
+    // const priceOptions = [100, 150, 200];
+    const priceOptions = [
+        {
+            name: "Agreement",
+            prices: [
+                100, 200, 500
+            ]
+        }, {
+            name: "Affidavit",
+            prices: [
+                50, 100, 200
+            ]
+        },
+    ]  
 
     const decodedSubcatName = subcatId.replace(/-/g, " ");
     const decodedTitle = productTitle.replace(/-/g, " ");
@@ -64,16 +77,20 @@ const ProductDetail = () => {
                         <label className="text-lg font-semibold text-gray-600 block mb-1">Select Your Agreement</label>
                         <select
                             className="w-full md:w-1/3 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003092]"
-                            value={selectedPrice}
+                            value={selectedPrice.previous}
                             onChange={(e) => priceHandler(Number(e.target.value))}
                         >
-                            <option>Select your agreement</option>
-                            {priceOptions.map((price, index) => (
-                                <option key={index} value={price}>
-                                    Rs: {price}
-                                </option>
-                            ))}
+                            {priceOptions
+                                .filter((price) => price.name === category.categoryName)
+                                .flatMap((price) =>
+                                    price.prices.map((e, i) => (
+                                        <option key={i} value={i == 0 ? 0 : e}>
+                                            Rs: {e}
+                                        </option>
+                                    ))
+                                )}
                         </select>
+
                     </div>
 
                     <div className="mb-6">
@@ -119,7 +136,7 @@ const ProductDetail = () => {
                     <div>
                         <p className="text-md font-medium text-gray-600 mb-2">Start Your Process</p>
                         <div className="space-y-4">
-                            <Link to={"/checkout"}>
+                            <Link to="/checkout" state={{ selectedPrice, product, subcategory }}>
                                 <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
                                     <FaShoppingCart />
                                     <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
