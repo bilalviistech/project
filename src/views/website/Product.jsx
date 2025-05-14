@@ -159,7 +159,7 @@ const Product = () => {
             <div className="px-4 sm:px-8 py-4 bg-gray-100 rounded-md shadow-inner">
                 {/* Category Buttons */}
                 <div className="overflow-x-auto">
-                    <div className="flex w-max sm:w-auto gap-3 sm:justify-center">
+                    <div className="flex w-max sm:w-auto gap-3 sm:justify-center max-[500px]:pb-3">
                         {mycategories.map((category, index) => (
                             <button
                                 key={index}
