@@ -118,7 +118,6 @@ const Product = () => {
     return (
         <div className="min-h-screen text-white font-sans">
             <Header />
-
             <div className="text-center py-8">
                 <h1 className="text-4xl font-bold text-[#f5a623]">Our Documents</h1>
                 <p className="text-lg mt-2 text-black">Select, complete the details, and order your legal document draft. MavDocs ensures reliable, free delivery of your documents to your doorstep within hours</p>
@@ -141,12 +140,12 @@ const Product = () => {
                                     autoComplete="off"
                                     value={searchText}  // Bind this to searchText state
                                     onChange={(e) => setSearchText(e.target.value)} // Update searchText state
-                                    className="w-full px-4 py-2 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-black"
+                                    className="w-full px-4 py-2 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF7F3E] transition-all text-black"
                                 />
                             </div>
                             <button
                                 type="submit"
-                                className="py-2 bg-[#f5a623] text-white px-6 text-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 transition-all rounded-r-md"
+                                className="py-2 bg-[#f5a623] text-white px-6 text-lg hover:bg-[#e66f2f] focus:ring-4 focus:ring-blue-300 transition-all rounded-r-md"
                             >
                                 Search
                             </button>
@@ -197,7 +196,49 @@ const Product = () => {
                 {renderFilteredProducts(catState)}
                 {/* Optional: Show message if no results */}
                 {renderFilteredProducts(catState).length === 0 && (
-                    <p className="text-center text-gray-600 mt-8 text-lg">No products found matching your search.</p>
+                    <div className="text-center mt-8">
+                        <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md border border-blue-100">
+                            <h2 className="text-2xl font-semibold text-[#003092] mb-4">
+                                Let us help you find it!
+                            </h2>
+
+                            <form className="space-y-4">
+                                <div className="text-left">
+                                    <label className="block text-sm font-medium text-gray-700">Name</label>
+                                    <input
+                                        type="text"
+                                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
+                                        placeholder="Enter your name"
+                                    />
+                                </div>
+
+                                <div className="text-left">
+                                    <label className="block text-sm font-medium text-gray-700">Details</label>
+                                    <textarea
+                                        rows="3"
+                                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
+                                        placeholder="What are you looking for?"
+                                    ></textarea>
+                                </div>
+
+                                <div className="text-left">
+                                    <label className="block text-sm font-medium text-gray-700">Contact</label>
+                                    <input
+                                        type="text"
+                                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
+                                        placeholder="Your contact info"
+                                    />
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-[#f5a623] hover:bg-[#e66f2f] text-white font-semibold py-2 px-4 rounded-md transition duration-200"
+                                >
+                                    Submit Request
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 )}
             </div>
 
