@@ -28,6 +28,7 @@ import HumanThatWrites from "@/assets/images/Human That Writes.png"
 import Saassociate from "@/assets/images/Sa associate.jpg"
 import UmarRealEstate from "@/assets/images/Umar Real Estate.png"
 import productImg from "@/assets/images/productImg.jpg"
+import { Navigation, Autoplay } from 'swiper/modules'; // import Navigation module
 
 // Sample partner data
 const partners = [
@@ -115,13 +116,13 @@ const reviews = [
         description:
             "Very impressed. The document was accurate, neatly printed, and came with everything I needed, even the envelope. Saved me so much time and hassle.",
     },
-    // {
-    //     name: "Mark Wilson",
-    //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
-    //     rating: 5,
-    //     description:
-    //         "Excellent customer support. The product exceeded my expectations in every way!",
-    // },
+    {
+        name: "Mark Wilson",
+        image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
+        rating: 5,
+        description:
+            "Excellent customer support. The product exceeded my expectations in every way!",
+    },
     // {
     //     name: "Mark Wilson",
     //     image: "https://randomuser.me/api/portraits/men/2.jpg", // Replace with actual images
@@ -181,6 +182,13 @@ const blogPosts = [
         description:
             "Learn the essential tips for improving your online marketing strategy. Increase engagement and drive more sales.",
         link: "/blog/online-marketing-tips",
+    },
+    {
+        title: "How to Boost Website Conversions",
+        image: "https://www.dummyimg.in/placeholder",
+        description:
+            "Discover proven strategies to increase your website's conversion rates and turn visitors into loyal customers.",
+        link: "/blog/website-conversion-tips",
     },
     {
         title: "How to Boost Website Conversions",
@@ -310,24 +318,24 @@ const Home = () => {
 
             {/* Cart Reviews */}
             <section className="flex justify-center items-center text-center py-8 bg-[#112e5a] mx-4 my-3 rounded-lg shadow-md">
-                <div className="bg-white text-black py-6 px-6 flex justify-center w-full">
+                <div className="bg-white text-black py-6 px-6 flex justify-center w-full max-[500px]:py-3">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl w-full">
                         {[
                             {
-                                icon: <FaArrowDown size={50} />,
+                                icon: <FaArrowDown />,
                                 text: "Low Prices",
                             },
                             {
-                                icon: <FaPercentage size={50} />,
+                                icon: <FaPercentage />,
                                 text: "Easy Process",
                             },
                             {
-                                icon: <FaTruckMoving size={50} />,
+                                icon: <FaTruckMoving />,
                                 text: "Free Delivery",
                             },
                         ].map(({ icon, text }, index) => (
-                            <div key={index} className="flex items-center justify-center space-x-3 rounded-lg">
-                                <div className="bg-[#f5a623] rounded-full p-3 text-white">
+                            <div key={index} className="flex items-center justify-center gap-2 rounded-lg">
+                                <div className="bg-[#f5a623] rounded-full p-3 text-white max-[500px]:text-3xl max-[1025px]:text-5xl max-[1500px]:text-5xl max-[2000px]:text-5xl">
                                     {icon}
                                 </div>
                                 <span className="text-lg font-medium text-black">{text}</span>
@@ -348,12 +356,13 @@ const Home = () => {
                 <div className="flex justify-center mb-4">
                     <Link to={"/product"}>
 
-                        <button className="bg-[#f5a623] text-white px-6 py-3 rounded-3xl text-lg hover:bg-[#f5a177] focus:ring-4 focus:ring-blue-300 transition-transform transform hover:translate-y-[-10px] duration-300 ease-in-out">
+                        <button className="bg-[#f5a623] text-white px-6 py-3 rounded-lg text-lg hover:bg-[#f5a177] focus:ring-4 focus:ring-blue-300 transition-transform transform hover:translate-y-[-10px] duration-300 ease-in-out">
                             Order Document
                         </button>
                     </Link>
                 </div>
             </section>
+
 
             <section className="py-7 px-6 bg-[#f7f7f7] text-center">
                 <h2 className="text-3xl font-bold text-[#003092] mb-8">
@@ -361,19 +370,21 @@ const Home = () => {
                 </h2>
 
                 <Swiper
-                    spaceBetween={30} // Space between slides
-                    slidesPerView={1} // Number of slides visible at a time
-                    loop={true} // Infinite loop effect
-                    autoplay={{ delay: 3000 }} // Auto play for the slider
+                    modules={[Navigation, Autoplay]} // Register modules here
+                    spaceBetween={30}
+                    slidesPerView={1}
+                    loop={true}
+                    autoplay={{ delay: 3000 }}
+                    navigation={true} // Enable navigation
                     breakpoints={{
                         640: {
-                            slidesPerView: 2, // 2 slides on small screens
+                            slidesPerView: 2,
                         },
                         768: {
-                            slidesPerView: 3, // 3 slides on medium screens
+                            slidesPerView: 3,
                         },
                         1024: {
-                            slidesPerView: 4, // 4 slides on large screens
+                            slidesPerView: 4,
                         },
                     }}
                 >
@@ -426,7 +437,7 @@ const Home = () => {
                     }}
                     loop={true} // Infinite loop effect
                     autoplay={{
-                        delay: 1000, // Set autoplay delay
+                        delay: 2000, // Set autoplay delay
                         disableOnInteraction: true, // Disable autoplay when interacting
                     }}
                 >
@@ -485,31 +496,22 @@ const Home = () => {
                 </h2>
 
                 <Swiper
-                    spaceBetween={30} // Space between slides
-                    slidesPerView={1} // Number of slides visible at a time
-                    loop={true} // Infinite loop effect
-                    autoplay={{ delay: 300 }} // Auto play for the slider
+                    modules={[Navigation, Autoplay]} // Register Navigation
+                    spaceBetween={30}
+                    slidesPerView={1}
+                    loop={true}
+                    autoplay={{ delay: 2000 }}
+                    navigation={true} // Enable navigation arrows
                     breakpoints={{
-                        320: {
-                            slidesPerView: 1, // 2 slides on small screens
-                        },
-                        425: {
-                            slidesPerView: 1, // 2 slides on small screens
-                        },
-                        640: {
-                            slidesPerView: 2, // 2 slides on small screens
-                        },
-                        768: {
-                            slidesPerView: 2, // 3 slides on medium screens
-                        },
-                        1024: {
-                            slidesPerView: 3, // 4 slides on large screens
-                        },
-                        1440: {
-                            slidesPerView: 4, // 4 slides on large screens
-                        },
+                        320: { slidesPerView: 1 },
+                        425: { slidesPerView: 1 },
+                        640: { slidesPerView: 2 },
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                        1440: { slidesPerView: 4 },
                     }}
                 >
+
                     {reviews.map((review, index) => (
                         <SwiperSlide key={index}>
                             <div className="bg-white min-h-80 max-h-80 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
@@ -555,22 +557,25 @@ const Home = () => {
                 </h2>
 
                 <Swiper
-                    spaceBetween={30} // Space between slides
-                    slidesPerView={1} // Number of slides visible at a time
-                    loop={true} // Infinite loop effect
-                    autoplay={{ delay: 3000 }} // Auto play for the slider
+                    modules={[Navigation, Autoplay]}
+                    spaceBetween={30}
+                    slidesPerView={1}
+                    loop={true}
+                    autoplay={{ delay: 2000 }}
+                    navigation={true}
                     breakpoints={{
                         640: {
-                            slidesPerView: 2, // 2 slides on small screens
+                            slidesPerView: 2,
                         },
                         768: {
-                            slidesPerView: 3, // 3 slides on medium screens
+                            slidesPerView: 3,
                         },
                         1024: {
-                            slidesPerView: 4, // 4 slides on large screens
+                            slidesPerView: 4,
                         },
                     }}
                 >
+                    {/* Slides go here */}
                     {blogPosts.map((post, index) => (
                         <SwiperSlide key={index}>
                             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">

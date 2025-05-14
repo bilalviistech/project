@@ -109,6 +109,12 @@ const Product = () => {
         ));
     };
 
+    const resetHandler = () => {
+        setSearchText("");                // Clear the search input
+        setCatState("Agreement");         // Optional: Reset category
+        navigate("/product");             // Remove search param from URL
+    };
+
     return (
         <div className="min-h-screen text-white font-sans">
             <Header />
@@ -150,19 +156,41 @@ const Product = () => {
             </div>
 
             {/* Category Buttons */}
-            <div className="overflow-x-auto">
-                <div className="flex sm:justify-center gap-4 sm:gap-6 mt-3 mx-3 px-2 w-max sm:w-auto">
-                    {mycategories.map((category, index) => (
-                        <button
-                            key={index}
-                            className="whitespace-nowrap px-5 py-2.5 bg-[#f5a623] text-white rounded-full shadow-md hover:bg-orange-600 transition-all text-base sm:text-lg font-semibold"
-                            onClick={() => catChangeHandler(category)}
-                        >
-                            {category.name}
-                        </button>
-                    ))}
+            <div className="px-4 sm:px-8 py-4 bg-gray-100 rounded-md shadow-inner">
+                {/* Category Buttons */}
+                <div className="overflow-x-auto">
+                    <div className="flex w-max sm:w-auto gap-3 sm:justify-center">
+                        {mycategories.map((category, index) => (
+                            <button
+                                key={index}
+                                className="whitespace-nowrap px-5 py-2 bg-[#f5a623] text-white rounded-full shadow-md hover:bg-orange-600 transition-all text-sm sm:text-base font-semibold"
+                                onClick={() => catChangeHandler(category)}
+                            >
+                                {category.name}
+                            </button>
+                        ))}
+                    </div>
                 </div>
+
+                {/* Clear Filter Button on Next Line */}
+                {
+                    searchText && (
+                        <div className="flex justify-center mt-4">
+                            <button
+                                onClick={resetHandler}
+                                className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-all text-sm sm:text-base font-medium shadow-md"
+                            >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                Clear Filter
+                            </button>
+                        </div>
+                    )
+                }
+                
             </div>
+
 
             {/* Product Lists with Filters */}
             <div className="my-10 px-6">
