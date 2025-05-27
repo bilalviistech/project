@@ -142,8 +142,8 @@ const ProductDetail = () => {
                                     <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
                                 </button>
                             </Link>
-                            <Link to={""}>
-                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-not-allowed">
+                            <Link to="/type-document" state={{ selectedPrice, product, subcategory }}>
+                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-pointer">
                                     <FaShoppingCart />
                                     <span className="">Get Typed Document <span className="block">(Fill Online Now)</span></span>
                                 </button>
