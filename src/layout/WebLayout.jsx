@@ -13,7 +13,6 @@ import PrivacyPolicy from "@/views/website/PrivacyPolicy";
 import ReturnExchangePolicy from "@/views/website/ReturnExchangePolicy";
 import DeliveryTracking from "@/views/website/DeliveryTracking";
 import JazzCashForm from "@/views/website/JazzCashForm";
-import Redirect from "@/views/website/redirect";
 import Form from "@/views/website/Form";
 import Index from "@/views/website/Agreement/ResidentalRentalAgreement/ResidentialRentalAgreement"
 import TypeDocument from "@/views/website/TypeDocument";
@@ -35,7 +34,6 @@ export const WebLayout = () => {
       <Route exact path="/return-exchange-policy" element={<ReturnExchangePolicy />} />
       <Route exact path="/delivery-tracking" element={<DeliveryTracking />} />
       <Route exact path="/JazzCashForm" element={<JazzCashForm />} />
-      <Route exact path="/Redirect" element={<Redirect />} />
       <Route exact path="/form" element={<Form />} />
       <Route exact path="/type-document" element={<TypeDocument />} />
     </Routes>
