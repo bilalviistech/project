@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { products } from "../../constant/data"
 import truncate from 'html-truncate';
+import banner2 from "@/assets/images/banner2.jpg"
 
 const ProductDetail = () => {
     const { id, subcatId, productTitle } = useParams();
@@ -22,7 +23,7 @@ const ProductDetail = () => {
                 50, 100, 200
             ]
         },
-    ]  
+    ]
 
     const decodedSubcatName = subcatId.replace(/-/g, " ");
     const decodedTitle = productTitle.replace(/-/g, " ");
@@ -61,9 +62,7 @@ const ProductDetail = () => {
 
             {/* Banner */}
             <section className="bg-[#C6E7FF] rounded-xl mx-4 md:mx-10 mt-6 p-8 shadow-lg">
-                <div className="w-full h-56 bg-gray-300 rounded-xl flex items-center justify-center">
-                    <span className="text-2xl font-bold text-[#003092]">Product Banner</span>
-                </div>
+                <img src={banner2} alt="" className="w-full object-contain" />
             </section>
 
             {/* Product Section */}
@@ -74,7 +73,7 @@ const ProductDetail = () => {
                     </h2>
 
                     <div className="mb-4">
-                        <label className="text-lg font-semibold text-gray-600 block mb-1">Select Your Agreement</label>
+                        <label className="text-lg font-semibold text-gray-600 block mb-1">Select Your Stamp Paper</label>
                         <select
                             className="w-full md:w-1/3 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003092]"
                             value={selectedPrice.previous}
@@ -143,9 +142,9 @@ const ProductDetail = () => {
                                 </button>
                             </Link>
                             <Link to="/type-document" state={{ selectedPrice, product, subcategory }}>
-                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-pointer">
+                                <button disabled={true} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-not-allowed">
                                     <FaShoppingCart />
-                                    <span className="">Get Typed Document <span className="block">(Fill Online Now)</span></span>
+                                    <span className="">Get Typed Document <span className="block">(Fill Online Now)</span><span className="block">Coming Soon</span></span>
                                 </button>
                             </Link>
                             {/* {product?.url && (

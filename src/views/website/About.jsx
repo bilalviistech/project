@@ -21,7 +21,8 @@ const About = () => {
                     <div className="max-w-5xl mx-auto text-center">
                         <h2 className="text-3xl font-bold text-[#003092] mb-4">Who We Are</h2>
                         <p className="text-lg text-gray-600">
-                            We are a dedicated team of legal professionals and tech enthusiasts committed to making legal documentation simple, reliable, and accessible to everyone. Our platform bridges the gap between people and complex paperwork by offering pre-drafted, customizable legal documents.
+                            A Pakistani technology company, MavDocs aims to contribute to the transformation of Pakistan by providing access to fast, reliable, and transparent legal solutions. MavDocs started with a simple idea: to eliminate the inefficiencies in the legal documentation market and provide a seamless platform for document creation and delivery.
+                            Our purpose is to modernize the way legal documentation works in Pakistan by streamlining and digitizing the process, making essential documents faster to obtain, easier to access, and more affordable for everyone.
                         </p>
                     </div>
                 </section>

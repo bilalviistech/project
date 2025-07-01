@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import React, { useEffect, useState } from 'react';
 import { FaUser, FaPhone, FaMapMarkerAlt, FaCity, FaCommentDots } from 'react-icons/fa';
-import { MdOutlineInput} from "react-icons/md";
+import { MdOutlineInput } from "react-icons/md";
 import { BiSolidUserDetail } from "react-icons/bi";
 import productImg from '@/assets/images/productImg.jpg';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
@@ -76,28 +76,16 @@ const Checkout = () => {
 
                                     {/* Form Fields */}
                                     <div className="space-y-4">
+                                        <h1 className='font-bold text-lg text-blue-900'>Enter Detail</h1>
                                         <InputWithIcon icon={FaUser} type="text" placeholder="Full Name" />
-                                        <div className="flex flex-col sm:flex-row gap-4">
-                                            <InputWithIcon icon={FaPhone} type="tel" placeholder="Phone Number" />
-                                            <InputWithIcon icon={FaPhone} type="tel" placeholder="Alternative Phone" />
-                                        </div>
+                                        <InputWithIcon icon={FaPhone} type="tel" placeholder="Phone Number" />
                                         <InputWithIcon icon={FaMapMarkerAlt} type="text" placeholder="Full Address" />
 
                                         <div className="flex flex-col sm:flex-row gap-4">
                                             <div className="flex items-center border rounded-lg px-4 py-2 bg-white shadow-sm w-full">
-                                                <FaMapMarkerAlt className="text-blue-600 mr-3" />
-                                                <select className="w-full outline-none bg-transparent text-sm">
-                                                    <option>Select Area</option>
-                                                    <option>Area A</option>
-                                                    <option>Area B</option>
-                                                </select>
-                                            </div>
-                                            <div className="flex items-center border rounded-lg px-4 py-2 bg-white shadow-sm w-full">
                                                 <FaCity className="text-blue-600 mr-3" />
                                                 <select className="w-full outline-none bg-transparent text-sm">
-                                                    <option>Select City</option>
-                                                    <option>City X</option>
-                                                    <option>City Y</option>
+                                                    <option>Karachi</option>
                                                 </select>
                                             </div>
                                         </div>

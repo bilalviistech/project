@@ -31,7 +31,59 @@ export const products = [
             details:
               "A legal contract defining the terms & conditions of both landlord and tenant for residential property occupancy.",
             url: productImg,
-            longDetail: "",
+            longDetail: `<div class="max-w-4xl mx-auto py-8 bg-white text-gray-800">
+
+  <p class="mb-6 text-base leading-relaxed">
+    <span class="font-bold text-[#003092]">Secure your rental terms with a professionally drafted Rental Agreement from MavDocs.</span>Whether you are a homeowner, taking and giving your property on rent, In your document, we cover all aspects, including rent amount, duration, security deposit, and responsibilities, ensuring legal validity and a hassle-free process.
+  </p>
+
+  <h2 class="text-2xl font-semibold text-[#003092] mb-4">What You Get:</h2>
+  <ul class="list-disc list-inside mb-8 space-y-2">
+    <li>Delivery within 3 hours across Karachi</li>
+    <li>Free doorstep delivery</li>
+    <li>Legally formatted, ready-to-sign document on official stamp paper</li>
+  </ul>
+
+  <h2 class="text-2xl font-semibold text-[#003092] mb-4">Frequently Asked Questions (FAQs)</h2>
+
+  <div class="space-y-6">
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">What will I receive in the package?</h3>
+      <p>Your delivery will include a customized MavDocs envelope containing your professionally drafted document, precisely tailored to the details you provided.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Will the document be signed?</h3>
+      <p>Yes. You get a signature document, which is legal under Pakistani law. However, MavDocs does not offer doorstep notarization services.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Is there a return policy if a mistake occurs?</h3>
+      <p>Yes. MavDocs offers a 24-hour return and correction policy if our team makes an error. If incorrect information was provided by the customer, revisions can still be made, but the return policy will not apply.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Can I request a bilingual (English + Urdu) version?</h3>
+      <p>Yes, MavDocs offers bilingual formats upon request during the confirmation call to ensure clarity for all parties involved.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">What if I need to add a specific clause?</h3>
+      <p>You can mention any specific terms or clauses during checkout. We'll ensure they're included professionally.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Is the stamp paper value appropriate for my rental amount?</h3>
+      <p>Yes. We calculate and apply the required stamp paper denomination based on current legal standards in Pakistan.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Do I need to visit anywhere, or is everything online?</h3>
+      <p>NO need to go, your convenience is our first choice. Simply submit your details, and we'll prepare, print, and deliver the agreement to your doorstep.</p>
+    </div>
+  </div>
+</div>
+`,
           },
           {
             title: "Commercial Rental Agreement",
@@ -342,12 +394,64 @@ export const products = [
 `,
           },
           {
-            title: "Car Leasing Agreement",
+            title: "Car Sale Agreement",
             price: 549,
             details:
               "A legal contract defining the terms and conditions for full and final transfer of vehicle ownership from seller to buyer.",
             url: productImg,
-            longDetail: "",
+            longDetail: `<div class="max-w-4xl mx-auto py-8 bg-white text-gray-800">
+
+  <p class="mb-6 text-base leading-relaxed">
+    <span class="font-bold text-[#003092]">Secure your sale terms with a professionally drafted Car Sale Agreement from MavDocs</span> Whether you're selling or buying a vehicle, in your document, we cover all aspects, including full payment terms, car condition details, transfer timelines, and mutual responsibilities, ensuring legal validity and a hassle-free process.
+  </p>
+
+  <h2 class="text-2xl font-semibold text-[#003092] mb-4">What You Get:</h2>
+  <ul class="list-disc list-inside mb-8 space-y-2">
+    <li>Delivery within 3 hours across Karachi</li>
+    <li>Free doorstep delivery</li>
+    <li>Legally formatted, ready-to-sign document on official stamp paper</li>
+  </ul>
+
+  <h2 class="text-2xl font-semibold text-[#003092] mb-4">Frequently Asked Questions (FAQs)</h2>
+
+  <div class="space-y-6">
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">What will I receive in the package?</h3>
+      <p>Your delivery will include a customized MavDocs envelope containing your professionally drafted document, precisely tailored to the details you provided.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Will the document be signed?</h3>
+      <p>Yes. You get a signature document, which is legal under Pakistani law. However, MavDocs does not offer doorstep notarization services.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Is there a return policy if a mistake occurs?</h3>
+      <p>Yes. MavDocs offers a 24-hour return and correction policy if our team makes an error. If incorrect information was provided by the customer, revisions can still be made, but the return policy will not apply.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Can I request a bilingual (English + Urdu) version?</h3>
+      <p>Yes, MavDocs offers bilingual formats upon request during the confirmation call to ensure clarity for all parties involved.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">What if I need to add a specific clause?</h3>
+      <p>You can mention any specific terms or clauses during checkout. We'll ensure they're included professionally.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Is the stamp paper value appropriate for my rental amount?</h3>
+      <p>Yes. We calculate and apply the required stamp paper denomination based on current legal standards in Pakistan.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Do I need to visit anywhere, or is everything online?</h3>
+      <p>NO need to go, your convenience is our first choice. Simply submit your details, and we'll prepare, print, and deliver the agreement to your doorstep.</p>
+    </div>
+  </div>
+</div>
+`,
           },
         ],
       },
@@ -360,8 +464,67 @@ export const products = [
     subcategories: [
       {
         id: 1,
-        name: "General Affidavt",
+        name: "General Affidavit",
         products: [
+          {
+            title: "General Affidavit",
+            price: 399,
+            details:
+              "A sworn legal declaration that confirms an individual's current residential address.",
+            url: productImg,
+            longDetail: `<div class="max-w-4xl mx-auto py-8 bg-white text-gray-800">
+  <p class="mb-6 text-base leading-relaxed">
+    <span class="font-bold text-[#003092]">Secure your legal statement with a professionally drafted General Affidavit from MavDocs.</span>Whether you need to declare a fact, statement, or legal position, in your document, we cover all necessary declarations clearly, ensuring legal validity and a hassle-free process.
+  </p>
+
+  <h2 class="text-2xl font-semibold text-[#003092] mb-4">What You Get:</h2>
+  <ul class="list-disc list-inside mb-8 space-y-2">
+    <li>Delivery within 3 hours across Karachi</li>
+    <li>Free doorstep delivery</li>
+    <li>Legally formatted, ready-to-sign document on official stamp paper</li>
+  </ul>
+
+  <h2 class="text-2xl font-semibold text-[#003092] mb-4">Frequently Asked Questions (FAQs)</h2>
+
+  <div class="space-y-6">
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">What will I receive in the package?</h3>
+      <p>Your delivery will include a customized MavDocs envelope containing your professionally drafted document, precisely tailored to the details you provided.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Will the document be signed?</h3>
+      <p>Yes. You get a signature document, which is legal under Pakistani law. However, MavDocs does not offer doorstep notarization services.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Is there a return policy if a mistake occurs?</h3>
+      <p>Yes. MavDocs offers a 24-hour return and correction policy if our team makes an error. If incorrect information was provided by the customer, revisions can still be made, but the return policy will not apply.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Can I request a bilingual (English + Urdu) version?</h3>
+      <p>Yes, MavDocs offers bilingual formats upon request during the confirmation call to ensure clarity for all parties involved.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">What if I need to add a specific clause?</h3>
+      <p>You can mention any specific terms or clauses during checkout. We'll ensure they're included professionally.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Is the stamp paper value appropriate for my rental amount?</h3>
+      <p>Yes. We calculate and apply the required stamp paper denomination based on current legal standards in Pakistan.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg text-gray-700">Do I need to visit anywhere, or is everything online?</h3>
+      <p>NO need to go, your convenience is our first choice. Simply submit your details, and we'll prepare, print, and deliver the agreement to your doorstep.</p>
+    </div>
+  </div>
+</div>
+`,
+          },
           {
             title: "Address Proof Affidavit",
             price: 399,
