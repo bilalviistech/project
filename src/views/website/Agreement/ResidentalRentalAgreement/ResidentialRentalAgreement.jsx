@@ -28,7 +28,7 @@ const ResidentialRentalAgreement = ({product, selectedPrice, subcategory}) => {
     };
 
     const handleSubmit = () => {
-        console.log("Final Submission Data:", formData);
+        // console.log("Final Submission Data:", formData);
         navigate("/checkout", {
             state: { selectedPrice, product, subcategory }
         });

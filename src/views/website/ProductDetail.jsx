@@ -135,13 +135,13 @@ const ProductDetail = () => {
                     <div>
                         <p className="text-md font-medium text-gray-600 mb-2">Start Your Process</p>
                         <div className="space-y-4">
-                            <Link to="/checkout" state={{ selectedPrice, product, subcategory }}>
+                            <Link to="/checkout" state={{ selectedPrice, product, subcategory, category }}>
                                 <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
                                     <FaShoppingCart />
                                     <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
                                 </button>
                             </Link>
-                            <Link to="/type-document" state={{ selectedPrice, product, subcategory }}>
+                            <Link to="/type-document" state={{ selectedPrice, product, subcategory, category }}>
                                 <button disabled={true} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-not-allowed">
                                     <FaShoppingCart />
                                     <span className="">Get Typed Document <span className="block">(Fill Online Now)</span><span className="block">Coming Soon</span></span>
