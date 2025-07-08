@@ -86,9 +86,9 @@ const Checkout = () => {
             toast.error('Please select a delivery time and payment method.');
             return;
         }
-        if (!formData.userName || !formData.userPhoneNumber || !formData.userAddress) {
+        if (!formData.userName || !formData.userPhoneNumber || !formData.userAddress || !formData.userMessage) {
             setLoading(false);
-            toast.error('Please fill in all required fields: Full Name, Phone Number, and Address.');
+            toast.error('Please fill in all required fields: Full Name, Phone Number, Any Message and Address.');
             return;
         }
         if (paymentMethod === 'JazzCash' && !jazzCashNumber) {
