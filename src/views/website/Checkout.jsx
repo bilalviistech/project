@@ -19,7 +19,7 @@ const InputWithIcon = ({ icon: Icon, ...props }) => (
 const Checkout = () => {
     const [day, setDay] = useState('');
     const [price, setPrice] = useState(0);
-    const [paymentMethod, setPaymentMethod] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState('cash'); // Default to 'cash'
     const [jazzCashNumber, setJazzCashNumber] = useState('');
     const [formData, setFormData] = useState({
         userName: '',
@@ -35,11 +35,7 @@ const Checkout = () => {
     const selectedPrice = location.state?.selectedPrice;
     const subcategory = location.state?.subcategory;
     const category = location.state?.category;
-
-    const handleDayChange = (value) => {
-        setDay(value);
-        setPrice(value === 'today' ? 200 : 0);
-    };
+    const [loading, setLoading] = useState(false);
 
     // Get current time using Moment.js
     const currentTime = moment();
@@ -65,17 +61,38 @@ const Checkout = () => {
         setFormData((prev) => ({ ...prev, deliveryTime: e.target.value }));
     };
 
+    const handleDayChange = (value) => {
+        setDay(value);
+        setPrice(value === 'today' ? 200 : 0);
+        // Reset deliveryTime if all slots are disabled
+        if (value === 'today' && isAfter3PM) {
+            setFormData((prev) => ({ ...prev, deliveryTime: '' }));
+            toast.error('No delivery slots available for today. Please select Tomorrow.');
+        } else if (!formData.deliveryTime) {
+            setFormData((prev) => ({ ...prev, deliveryTime: isAfter12PM ? '3 PM - 6 PM' : '12 PM - 3 PM' }));
+        }
+    };
+
     const handleSubmit = (e) => {
+        setLoading(true);
         e.preventDefault();
         if (!day) {
+            setLoading(false);
             toast.error('Please select a delivery day (Today or Tomorrow).');
             return;
         }
-        if (!formData.userName || !formData.userPhoneNumber || !formData.userAddress || !formData.deliveryTime || !paymentMethod) {
-            toast.error('Please fill in all required fields: Full Name, Phone Number, Address, Delivery Time, and Payment Method.');
+        if (!formData.deliveryTime || !paymentMethod) {
+            setLoading(false);
+            toast.error('Please select a delivery time and payment method.');
+            return;
+        }
+        if (!formData.userName || !formData.userPhoneNumber || !formData.userAddress) {
+            setLoading(false);
+            toast.error('Please fill in all required fields: Full Name, Phone Number, and Address.');
             return;
         }
         if (paymentMethod === 'JazzCash' && !jazzCashNumber) {
+            setLoading(false);
             toast.error('Please provide a JazzCash Mobile Number.');
             return;
         }
@@ -117,9 +134,11 @@ const Checkout = () => {
         axios.request(config)
             .then((response) => {
                 toast.success('Order placed successfully');
+                setLoading(false);
                 navigate('/');
             })
             .catch((error) => {
+                setLoading(false);
                 toast.error('Something went wrong. Please try again.');
                 console.log(error);
             });
@@ -215,20 +234,6 @@ const Checkout = () => {
                                                 onChange={handleInputChange}
                                             />
                                         </div>
-
-                                        {/* JazzCash Mobile Field */}
-                                        {/* {paymentMethod === 'JazzCash' && (
-                                            <div className="transition-all duration-300 ease-in-out">
-                                                <InputWithIcon
-                                                    icon={FaPhone}
-                                                    type="tel"
-                                                    placeholder="JazzCash Mobile Number"
-                                                    value={jazzCashNumber}
-                                                    onChange={(e) => setJazzCashNumber(e.target.value)}
-                                                    required
-                                                />
-                                            </div>
-                                        )} */}
                                     </div>
 
                                     {/* Right Side: Options & Submit */}
@@ -267,9 +272,10 @@ const Checkout = () => {
                                                         onChange={handleDeliveryTimeChange}
                                                         className="accent-blue-500"
                                                         disabled={is12to3Disabled}
-                                                        required
+                                                        checked={formData.deliveryTime === '12 PM - 3 PM'}
+                                                        required={!is12to3Disabled}
                                                     />
-                                                    12 PM – 3 PM (Free)
+                                                    12 PM – 3 PM
                                                 </label>
                                                 <label className="flex items-center gap-2">
                                                     <input
@@ -279,9 +285,10 @@ const Checkout = () => {
                                                         onChange={handleDeliveryTimeChange}
                                                         className="accent-blue-500"
                                                         disabled={is3to6Disabled}
-                                                        required
+                                                        checked={formData.deliveryTime === '3 PM - 6 PM'}
+                                                        required={!is3to6Disabled}
                                                     />
-                                                    3 PM – 6 PM (Free)
+                                                    3 PM – 6 PM
                                                 </label>
                                             </div>
                                         </div>
@@ -290,17 +297,6 @@ const Checkout = () => {
                                         <div className="bg-white rounded-xl shadow p-6">
                                             <h2 className="text-lg font-bold text-gray-700 mb-3">Payment Method</h2>
                                             <div className="space-y-3 text-sm">
-                                                {/* <label className="flex items-center gap-2">
-                                                    <input
-                                                        type="radio"
-                                                        name="payment"
-                                                        value="JazzCash"
-                                                        onChange={(e) => setPaymentMethod(e.target.value)}
-                                                        className="accent-orange-500"
-                                                        required
-                                                    />
-                                                    JazzCash
-                                                </label> */}
                                                 <label className="flex items-center gap-2">
                                                     <input
                                                         type="radio"
@@ -308,6 +304,7 @@ const Checkout = () => {
                                                         value="cash"
                                                         onChange={(e) => setPaymentMethod(e.target.value)}
                                                         className="accent-orange-500"
+                                                        checked={paymentMethod === 'cash'}
                                                         required
                                                     />
                                                     COD (Cash on Delivery)
@@ -320,8 +317,9 @@ const Checkout = () => {
                                             <button
                                                 type="submit"
                                                 className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full text-lg font-bold shadow-md transition-all"
+                                                disabled={loading}
                                             >
-                                                Place Order – PKR {selectedPrice.price + price}
+                                                {loading ? `Placing Order – PKR ${selectedPrice.price + price}` : `Place Order – PKR ${selectedPrice.price + price}`}
                                             </button>
                                         </div>
                                     </div>
@@ -364,9 +362,10 @@ const Checkout = () => {
                                                 onChange={handleDeliveryTimeChange}
                                                 className="accent-blue-500"
                                                 disabled={is12to3Disabled}
-                                                required
+                                                checked={formData.deliveryTime === '12 PM - 3 PM'}
+                                                required={!is12to3Disabled}
                                             />
-                                            12 PM – 3 PM (Free)
+                                            12 PM – 3 PM
                                         </label>
                                         <label className="flex items-center gap-2">
                                             <input
@@ -376,9 +375,10 @@ const Checkout = () => {
                                                 onChange={handleDeliveryTimeChange}
                                                 className="accent-blue-500"
                                                 disabled={is3to6Disabled}
-                                                required
+                                                checked={formData.deliveryTime === '3 PM - 6 PM'}
+                                                required={!is3to6Disabled}
                                             />
-                                            3 PM – 6 PM (Free)
+                                            3 PM – 6 PM
                                         </label>
                                     </div>
                                 </div>
@@ -387,17 +387,6 @@ const Checkout = () => {
                                 <div className="bg-white rounded-xl shadow p-6">
                                     <h2 className="text-lg font-bold text-gray-700 mb-3">Payment Method</h2>
                                     <div className="space-y-3 text-sm">
-                                        {/* <label className="flex items-center gap-2">
-                                            <input
-                                                type="radio"
-                                                name="payment"
-                                                value="JazzCash"
-                                                onChange={(e) => setPaymentMethod(e.target.value)}
-                                                className="accent-orange-500"
-                                                required
-                                            />
-                                            JazzCash
-                                        </label> */}
                                         <label className="flex items-center gap-2">
                                             <input
                                                 type="radio"
@@ -405,6 +394,7 @@ const Checkout = () => {
                                                 value="cash"
                                                 onChange={(e) => setPaymentMethod(e.target.value)}
                                                 className="accent-orange-500"
+                                                checked={paymentMethod === 'cash'}
                                                 required
                                             />
                                             COD (Cash on Delivery)
@@ -418,8 +408,9 @@ const Checkout = () => {
                                         type="submit"
                                         form="checkoutForm"
                                         className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full text-lg font-bold shadow-md transition-all"
+                                        disabled={loading}
                                     >
-                                        Place Order – PKR {selectedPrice.price + price}
+                                        {loading ? `Placing Order – PKR ${selectedPrice.price + price}` : `Place Order – PKR ${selectedPrice.price + price}`}
                                     </button>
                                 </div>
                             </div>
