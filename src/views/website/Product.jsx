@@ -238,7 +238,7 @@ const Product = () => {
                                 </div>
 
                                 <button
-                                    type="submit"
+                                    // type="submit"
                                     className="w-full bg-[#f5a623] hover:bg-[#e66f2f] text-white font-semibold py-2 px-4 rounded-md transition duration-200"
                                 >
                                     Submit Request

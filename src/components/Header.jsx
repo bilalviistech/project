@@ -54,18 +54,18 @@ const Header = () => {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className="md:hidden flex flex-col mt-4 space-y-2">
-                    <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
+                    {/* <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
                         Agreement
                     </button>
                     <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
                         Affidavit
+                    </button> */}
+                    <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all" onClick={findingDocument}>
+                        Finding your document?
                     </button>
-                    <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
-                        Customize Document
-                    </button>
-                    <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
+                    {/* <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
                         Stamp Paper
-                    </button>
+                    </button> */}
                 </div>
             )}
         </nav>
