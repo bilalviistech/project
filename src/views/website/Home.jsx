@@ -1495,7 +1495,7 @@ const Home = () => {
       <section className="flex flex-col items-center justify-center py-5">
         {/* Heading */}
         <div className="mb-4 text-center">
-          <h2 className="text-4xl font-bold text-gray-800">Legal documents with fast, reliable, and free delivery</h2>
+          <h2 className="md:text-2xl font-bold text-gray-800">Legal documents with fast, reliable, and free delivery</h2>
         </div>
         {/* Button */}
         <div className="flex justify-center mb-4">
@@ -1536,7 +1536,7 @@ const Home = () => {
             category.subcategories.map((subcategory) =>
               subcategory.products.map((product, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                  <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 mb-5">
                     <div className="flex justify-center mb-4">
                       <img
                         src={product.url}
@@ -1554,7 +1554,7 @@ const Home = () => {
                           : product.details || product.detail}
                       </p>
                       <p className="text-lg font-semibold text-[#f15722] mb-4">
-                        {product.price}
+                        RS: {product.price}/=
                       </p>
                       {/* <Link to="/product-detail"> */}
                       <Link to={`/product-detail/${category.id}/${subcategory.id}/${product.title}`}>
@@ -1666,14 +1666,14 @@ const Home = () => {
 
           {reviews.map((review, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white min-h-80 max-h-80 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
-                <div className="flex justify-center mb-4">
+              <div className="bg-white min-h-60 max-h-60 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 mb-5">
+                {/* <div className="flex justify-center mb-4">
                   <img
                     src={"https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg"}
                     alt={review.name}
                     className="w-20 h-20 rounded-full object-cover border-2 border-[#f5a623]"
                   />
-                </div>
+                </div> */}
                 <div className="text-center">
                   <h3 className="text-xl font-semibold text-[#003092] mb-2">
                     {review.name}
@@ -1730,7 +1730,7 @@ const Home = () => {
           {/* Slides go here */}
           {blogPosts.map((post, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 mb-5">
                 <div className="mb-4">
                   <img
                     src={post.image}

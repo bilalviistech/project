@@ -86,7 +86,7 @@ const Checkout = () => {
             toast.error('Please select a delivery time and payment method.');
             return;
         }
-        if (!formData.userName || !formData.userPhoneNumber || !formData.userAddress || !formData.userMessage) {
+        if (!formData.userName || !formData.userPhoneNumber || !formData.userAddress) {
             setLoading(false);
             toast.error('Please fill in all required fields: Full Name, Phone Number, Any Message and Address.');
             return;

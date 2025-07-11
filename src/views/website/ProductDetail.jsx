@@ -15,7 +15,7 @@ const ProductDetail = () => {
         {
             name: "Agreement",
             prices: [
-                100, 200, 500
+                "Select your price", 100, 200, 500
             ]
         }, {
             name: "Affidavit",

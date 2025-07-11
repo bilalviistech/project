@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import whiteLogo from "@/assets/images/whiteLogo.png"
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [searchText, setSearchText] = useState('');
+    const navigate = useNavigate();
+
+    const findingDocument = (e) => {
+        setSearchText("Customize")
+        e.preventDefault();
+        if (searchText.trim()) {
+            navigate(`/product?search=${encodeURIComponent(searchText.trim())}`);
+        }
+      };
 
     return (
         <nav className="bg-[#112e5a] shadow-lg p-4">
@@ -28,7 +38,7 @@ const Header = () => {
                     <button className="px-4 pb-1 text-white rounded-lg shadow-md hover:bg-[#f5a623] transition-all">
                         Affidavit
                     </button>
-                    <button className="px-4 pb-1 text-white rounded-lg shadow-md hover:bg-[#f5a623] transition-all">
+                    <button className="px-4 pb-1 text-white rounded-lg shadow-md hover:bg-[#f5a623] transition-all" onClick={findingDocument}>
                         Finding your document?
                     </button>
                 </div>

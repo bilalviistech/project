@@ -17,12 +17,19 @@ const Product = () => {
 
     const queryParams = new URLSearchParams(location.search);
     const searchTerm = queryParams.get("search")?.toLowerCase() || "";
+    const [temp, setTemp] = useState(searchTerm)
 
     useEffect(() => {
-        if (searchTerm) {
-            setSearchText(searchTerm);  // Set search text from URL
+        // if (searchTerm) {
+        //     setCatState(searchTerm)
+        //     setSearchText(searchTerm);  // Set search text from URL
+        // }
+        if (temp) {
+            setCatState(temp)
+            setTemp("")
+            // setSearchText(searchTerm);  // Set search text from URL
         }
-    }, [searchTerm]);
+    }, [temp]);
 
     const catChangeHandler = (value) => {
         setCatState(value.name);
@@ -213,21 +220,21 @@ const Product = () => {
                                 </div>
 
                                 <div className="text-left">
-                                    <label className="block text-sm font-medium text-gray-700">Details</label>
-                                    <textarea
-                                        rows="3"
-                                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
-                                        placeholder="What are you looking for?"
-                                    ></textarea>
-                                </div>
-
-                                <div className="text-left">
                                     <label className="block text-sm font-medium text-gray-700">Contact</label>
                                     <input
                                         type="text"
                                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
                                         placeholder="Your contact info"
                                     />
+                                </div>
+
+                                <div className="text-left">
+                                    <label className="block text-sm font-medium text-gray-700">Document Details</label>
+                                    <textarea
+                                        rows="3"
+                                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
+                                        placeholder="What are you looking for?"
+                                    ></textarea>
                                 </div>
 
                                 <button
