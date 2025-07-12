@@ -345,7 +345,6 @@ const Checkout = () => {
                                                         onChange={handleUrgentDelivery}
                                                         className="accent-orange-500"
                                                         checked={urgentDelivery}
-                                                        required
                                                     />
                                                     1 Hour Delivery: Rs 70 Extra
                                                 </label>
