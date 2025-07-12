@@ -17,7 +17,7 @@ const Footer = () => {
                             className="object-contain"
                         /></Link>
                     <p className="text-sm text-gray-300 mb-4">
-                        <span className="font-extrabold">MavDocs.com</span> is a legal tech platform and  not a law firm or accounting firm and does not provide legal, tax, or accounting advice. The content, materials, documents, and templates available on this website are intended solely for informational and educational purposes
+                        <span className="font-extrabold">mavdocs.pk</span> is a legal tech platform and  not a law firm or accounting firm and does not provide legal, tax, or accounting advice. The content, materials, documents, and templates available on this website are intended solely for informational and educational purposes
                     </p>
                     <Link
                         to="/"
@@ -52,7 +52,7 @@ const Footer = () => {
                 <div className="flex flex-col items-center md:items-start">
                     <h3 className="text-lg font-semibold text-white mb-4">Contact Us</h3>
                     <p className="text-sm mb-2">📍 Karachi, Pakistan.</p>
-                    <a href="mailto:info@mavdocs.com" className="text-sm mb-2 hover:underline">📧 info@mavdocs.com</a>
+                    <a href="mailto:info@mavdocs.pk" className="text-sm mb-2 hover:underline">📧 info@mavdocs.pk</a>
                     <a href="tel:+923001882235" className="text-sm mb-4 hover:underline">📞 +92 300 188 2235</a>
 
                     <div className="flex space-x-4 justify-center md:justify-start">

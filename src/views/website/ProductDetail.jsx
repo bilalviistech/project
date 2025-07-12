@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { products } from "../../constant/data"
 import truncate from 'html-truncate';
 import banner2 from "@/assets/images/banner2.jpg"
+import { toast } from "react-toastify";
 
 const ProductDetail = () => {
     const { id, subcatId, productTitle } = useParams();
@@ -15,12 +16,12 @@ const ProductDetail = () => {
         {
             name: "Agreement",
             prices: [
-                "Select your price", 100, 200, 500
+                "Select your stamp paper price", 100, 200, 500
             ]
         }, {
             name: "Affidavit",
             prices: [
-                50, 100, 200
+                "Select your stamp paper price", 50, 100, 200
             ]
         },
     ]
@@ -135,31 +136,41 @@ const ProductDetail = () => {
                     <div>
                         <p className="text-md font-medium text-gray-600 mb-2">Start Your Process</p>
                         <div className="space-y-4">
-                            <Link to="/checkout" state={{ selectedPrice, product, subcategory, category }}>
-                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
-                                    <FaShoppingCart />
-                                    <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
-                                </button>
-                            </Link>
-                            <Link to="/type-document" state={{ selectedPrice, product, subcategory, category }}>
-                                <button disabled={true} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-not-allowed">
-                                    <FaShoppingCart />
-                                    <span className="">Get Typed Document <span className="block">(Fill Online Now)</span><span className="block">Coming Soon</span></span>
-                                </button>
-                            </Link>
-                            {/* {product?.url && (
+                            {
+                                selectedPrice.previous == 0 ? (
+                                    <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all" onClick={()=> toast.error("Please select your stamp paper")}>
+                                        <FaShoppingCart />
+                                        <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
+                                    </button>
+                                ): (
+                                        <Link to = "/checkout" state = {{ selectedPrice, product, subcategory, category }}>
+                            <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
+                                <FaShoppingCart />
+                                <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
+                            </button>
+                        </Link>
+                        )
+                            }
+
+                        <Link to="/type-document" state={{ selectedPrice, product, subcategory, category }}>
+                            <button disabled={true} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-not-allowed">
+                                <FaShoppingCart />
+                                <span className="">Get Typed Document <span className="block">(Fill Online Now)</span><span className="block">Coming Soon</span></span>
+                            </button>
+                        </Link>
+                        {/* {product?.url && (
                                 <img src={product.url} alt={product.title} className="rounded-lg shadow-md w-full max-w-lg md:w-full sm:w-full lg:w-full" />
                             )} */}
-                        </div>
-                    </div>
-                    <div className="text-xs text-gray-400 text-center">
-                        *You can choose between a blank or editable version based on your preference.
                     </div>
                 </div>
-            </section>
-
-            <Footer />
+                <div className="text-xs text-gray-400 text-center">
+                    *You can choose between a blank or editable version based on your preference.*
+                </div>
         </div>
+            </section >
+
+    <Footer />
+        </div >
     );
 };
 

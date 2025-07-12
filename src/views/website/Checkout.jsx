@@ -8,6 +8,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
+import ThankYou from '@/components/ThankYou';
 
 const InputWithIcon = ({ icon: Icon, ...props }) => (
     <div className="flex items-center border rounded-lg px-4 py-2 bg-white shadow-sm focus-within:ring-2 ring-orange-400 transition-all">
@@ -18,6 +19,8 @@ const InputWithIcon = ({ icon: Icon, ...props }) => (
 
 const Checkout = () => {
     const [day, setDay] = useState('');
+    const [modal, openModal] = useState(false)
+    const [urgentDelivery, setUrgentDelivery] = useState(false);
     const [price, setPrice] = useState(0);
     const [paymentMethod, setPaymentMethod] = useState('cash'); // Default to 'cash'
     const [jazzCashNumber, setJazzCashNumber] = useState('');
@@ -27,7 +30,6 @@ const Checkout = () => {
         userAddress: '',
         userCity: 'Karachi',
         userMessage: '',
-        deliveryTime: ''
     });
     const navigate = useNavigate();
     const location = useLocation();
@@ -57,20 +59,21 @@ const Checkout = () => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleDeliveryTimeChange = (e) => {
-        setFormData((prev) => ({ ...prev, deliveryTime: e.target.value }));
-    };
-
     const handleDayChange = (value) => {
         setDay(value);
-        setPrice(value === 'today' ? 200 : 0);
-        // Reset deliveryTime if all slots are disabled
-        if (value === 'today' && isAfter3PM) {
-            setFormData((prev) => ({ ...prev, deliveryTime: '' }));
-            toast.error('No delivery slots available for today. Please select Tomorrow.');
-        } else if (!formData.deliveryTime) {
-            setFormData((prev) => ({ ...prev, deliveryTime: isAfter12PM ? '3 PM - 6 PM' : '12 PM - 3 PM' }));
-        }
+        // setPrice(value === 'today' ? 200 : 0);
+        // // Reset deliveryTime if all slots are disabled
+        // if (value === 'today' && isAfter3PM) {
+        //     setFormData((prev) => ({ ...prev, deliveryTime: '' }));
+        //     toast.error('No delivery slots available for today. Please select Tomorrow.');
+        // } else if (!formData.deliveryTime) {
+        //     setFormData((prev) => ({ ...prev, deliveryTime: isAfter12PM ? '3 PM - 6 PM' : '12 PM - 3 PM' }));
+        // }
+    };
+
+    const handleUrgentDelivery = (value) => {
+        setUrgentDelivery(!urgentDelivery)
+        setPrice(70);
     };
 
     const handleSubmit = (e) => {
@@ -81,9 +84,9 @@ const Checkout = () => {
             toast.error('Please select a delivery day (Today or Tomorrow).');
             return;
         }
-        if (!formData.deliveryTime || !paymentMethod) {
+        if (!paymentMethod) {
             setLoading(false);
-            toast.error('Please select a delivery time and payment method.');
+            toast.error('Please select a payment method.');
             return;
         }
         if (!formData.userName || !formData.userPhoneNumber || !formData.userAddress) {
@@ -117,7 +120,6 @@ const Checkout = () => {
             "userAddress": submissionData.userAddress,
             "paymentMethod": submissionData.paymentMethod,
             "deliverySlot": submissionData.deliveryDay,
-            "deliveryTime": submissionData.deliveryTime,
             "totalPrice": (selectedPrice.price + price),
         });
 
@@ -135,7 +137,8 @@ const Checkout = () => {
             .then((response) => {
                 toast.success('Order placed successfully');
                 setLoading(false);
-                navigate('/');
+                openModal(true)
+                setTimeout(() => navigate('/'), 3000);
             })
             .catch((error) => {
                 setLoading(false);
@@ -160,7 +163,7 @@ const Checkout = () => {
                                     <img src={product.url} alt="Contract" className="w-28 h-28 object-cover rounded-xl border" />
                                     <div>
                                         <h3 className="text-xl font-semibold text-blue-900">{product.title}</h3>
-                                        <p className="text-gray-600 text-sm">Includes stamp paper + home delivery</p>
+                                        <p className="text-gray-600 text-sm">Includes stamp paper + <span className='text-base font-bold'>Home Delivery</span></p>
                                         <div className="mt-2 text-orange-500 font-bold text-lg">
                                             PKR {selectedPrice.price}
                                         </div>
@@ -250,7 +253,7 @@ const Checkout = () => {
                                                         : 'bg-white text-gray-700 border-gray-300'
                                                         }`}
                                                 >
-                                                    Deliver Today (PKR 200)
+                                                    Today
                                                 </button>
                                                 <button
                                                     type="button"
@@ -260,11 +263,11 @@ const Checkout = () => {
                                                         : 'bg-white text-gray-700 border-gray-300'
                                                         }`}
                                                 >
-                                                    Deliver Tomorrow
+                                                    Tomorrow
                                                 </button>
                                             </div>
                                             <div className="space-y-3 text-sm mt-4">
-                                                <label className="flex items-center gap-2">
+                                                {/* <label className="flex items-center gap-2">
                                                     <input
                                                         type="radio"
                                                         name="deliveryTime"
@@ -289,7 +292,28 @@ const Checkout = () => {
                                                         required={!is3to6Disabled}
                                                     />
                                                     3 PM – 6 PM
-                                                </label>
+                                                </label> */}
+                                                {
+                                                    day === "today" && (
+                                                        <>
+                                                            <div className=''>
+                                                                <div className='flex justify-center items-center'>
+                                                                    <h2>Delivery Within:</h2>
+                                                                </div>
+                                                            </div>
+                                                            <div className=''>
+                                                                <div className='flex justify-center items-center'>
+                                                                    <h3>3 Hours</h3>
+                                                                </div>
+                                                            </div>
+                                                            <div className=''>
+                                                                <div className='flex justify-center items-center'>
+                                                                    <p>*All orders will be delivered between 10 AM and 7 PM*</p>
+                                                                </div>
+                                                            </div>
+                                                        </>
+                                                    )
+                                                }
                                             </div>
                                         </div>
 
@@ -308,6 +332,22 @@ const Checkout = () => {
                                                         required
                                                     />
                                                     COD (Cash on Delivery)
+                                                </label>
+                                            </div>
+
+                                            <h2 className="text-lg font-bold text-gray-700 mt-3 mb-3">Urgent Delivery</h2>
+                                            <div className="space-y-3 text-sm">
+                                                <label className="flex items-center gap-2">
+                                                    <input
+                                                        type="radio"
+                                                        name="urgentDelivery"
+                                                        value="yes"
+                                                        onChange={handleUrgentDelivery}
+                                                        className="accent-orange-500"
+                                                        checked={urgentDelivery}
+                                                        required
+                                                    />
+                                                    1 Hour Delivery: Rs 70 Extra
                                                 </label>
                                             </div>
                                         </div>
@@ -340,7 +380,7 @@ const Checkout = () => {
                                                 : 'bg-white text-gray-700 border-gray-300'
                                                 }`}
                                         >
-                                            Deliver Today (PKR 200)
+                                            Today
                                         </button>
                                         <button
                                             type="button"
@@ -350,11 +390,11 @@ const Checkout = () => {
                                                 : 'bg-white text-gray-700 border-gray-300'
                                                 }`}
                                         >
-                                            Deliver Tomorrow
+                                            Tomorrow
                                         </button>
                                     </div>
                                     <div className="space-y-3 text-sm mt-4">
-                                        <label className="flex items-center gap-2">
+                                        {/* <label className="flex items-center gap-2">
                                             <input
                                                 type="radio"
                                                 name="deliveryTime"
@@ -379,7 +419,28 @@ const Checkout = () => {
                                                 required={!is3to6Disabled}
                                             />
                                             3 PM – 6 PM
-                                        </label>
+                                        </label> */}
+                                        {
+                                            day === "today" && (
+                                                <>
+                                                    <div className=''>
+                                                        <div className='flex justify-center items-center'>
+                                                            <h2>Delivery Within:</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div className=''>
+                                                        <div className='flex justify-center items-center'>
+                                                            <h3>3 Hours</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div className=''>
+                                                        <div className='flex justify-center items-center'>
+                                                            <p>*All orders will be delivered between 10 AM and 7 PM*</p>
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            )
+                                        }
                                     </div>
                                 </div>
 
@@ -398,6 +459,22 @@ const Checkout = () => {
                                                 required
                                             />
                                             COD (Cash on Delivery)
+                                        </label>
+                                    </div>
+
+                                    <h2 className="text-lg font-bold text-gray-700 mt-3 mb-3">Urgent Delivery</h2>
+                                    <div className="space-y-3 text-sm">
+                                        <label className="flex items-center gap-2">
+                                            <input
+                                                type="radio"
+                                                name="urgentDelivery"
+                                                value="yes"
+                                                onChange={handleUrgentDelivery}
+                                                className="accent-orange-500"
+                                                checked={urgentDelivery}
+                                                required
+                                            />
+                                            1 Hour Delivery: Rs 70 Extra
                                         </label>
                                     </div>
                                 </div>
@@ -419,6 +496,12 @@ const Checkout = () => {
                     <Footer />
                 </div>
             )}
+
+            {
+                modal && (
+                    <ThankYou heading={"Thank you for your order!"} descp={"Your order has been successfully received. Our team is processing it, and you can expect an update within the next 10 minutes."}/>
+                )
+            }
         </>
     );
 };

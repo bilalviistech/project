@@ -4,12 +4,22 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { mycategories, products } from "./../../constant/data";
+import { toast } from "react-toastify";
+import axios from 'axios';
+import ThankYou from "@/components/ThankYou";
 
 const Product = () => {
+    const [modal, showModal] = useState(false)
     const [searchText, setSearchText] = useState("");  // Use this to control the search bar
     const [currentText, setCurrentText] = useState("Search Your Agreement");
     const textArray = ["Search Your Agreement", "Search Your Affidavit", "Search Your Undertaking", "Search Your Promissory Note", "Customize Document"];
     const [catState, setCatState] = useState("Agreement");
+    const [formData, setFormData] = useState({
+        name: '',
+        contact: '',
+        docDetail: '',
+    });
+    const [loading, setLoading] = useState(false);
 
     // Get search term from URL
     const location = useLocation();
@@ -122,7 +132,62 @@ const Product = () => {
         navigate("/product");             // Remove search param from URL
     };
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = (e) => {
+        setLoading(true);
+        e.preventDefault();
+        if (!formData.name) {
+            setLoading(false);
+            toast.error('Please provide a name.');
+            return;
+        }
+        if (!formData.contact) {
+            setLoading(false);
+            toast.error('Please Please provide a contact.');
+            return;
+        }
+        if (!formData.docDetail) {
+            setLoading(false);
+            toast.error('Please Please provide a docDetail.');
+            return;
+        }
+
+        let data = JSON.stringify({
+            "name": formData.name,
+            "contact": formData.contact,
+            "docDetail": formData.docDetail,
+        });
+
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'https://mavdocsbackend-production.up.railway.app/api/order/query',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+        axios.request(config)
+            .then((response) => {
+                toast.success('Query placed successfully');
+                setLoading(false);
+                showModal(true)
+                setTimeout(() => navigate('/'), 3000);
+            })
+            .catch((error) => {
+                setLoading(false);
+                toast.error('Something went wrong. Please try again.');
+                console.log(error);
+            });
+    };
+
     return (
+        <>
         <div className="min-h-screen text-white font-sans">
             <Header />
             <div className="text-center py-8">
@@ -194,7 +259,7 @@ const Product = () => {
                         </div>
                     )
                 }
-                
+
             </div>
 
 
@@ -205,17 +270,20 @@ const Product = () => {
                 {renderFilteredProducts(catState).length === 0 && (
                     <div className="text-center mt-8">
                         <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md border border-blue-100">
-                            <h2 className="text-2xl font-semibold text-[#003092] mb-4">
-                                Let us help you find it!
+                            <h2 className="text-xl font-semibold text-[#003092] mb-4">
+                                Need any stamp paper understanding, promissory note or other documents? Send us your detail
                             </h2>
 
-                            <form className="space-y-4">
+                            <form className="space-y-4" onSubmit={handleSubmit}>
                                 <div className="text-left">
                                     <label className="block text-sm font-medium text-gray-700">Name</label>
                                     <input
                                         type="text"
                                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
                                         placeholder="Enter your name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
                                     />
                                 </div>
 
@@ -225,6 +293,9 @@ const Product = () => {
                                         type="text"
                                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
                                         placeholder="Your contact info"
+                                        name="contact"
+                                        value={formData.contact}
+                                        onChange={handleInputChange}
                                     />
                                 </div>
 
@@ -234,14 +305,18 @@ const Product = () => {
                                         rows="3"
                                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
                                         placeholder="What are you looking for?"
+                                        name="docDetail"
+                                        value={formData.docDetail}
+                                        onChange={handleInputChange}
                                     ></textarea>
                                 </div>
 
                                 <button
-                                    // type="submit"
+                                    type="submit"
                                     className="w-full bg-[#f5a623] hover:bg-[#e66f2f] text-white font-semibold py-2 px-4 rounded-md transition duration-200"
+                                    disabled={loading}
                                 >
-                                    Submit Request
+                                    {loading ? `Submiting Request` : `Submit Request`}
                                 </button>
                             </form>
                         </div>
@@ -251,6 +326,12 @@ const Product = () => {
 
             <Footer />
         </div>
+            {
+                modal && (
+                    <ThankYou heading={"Thank you for submitting the form!"} descp={"Our Customer Care team will get in touch with you within the next 15 minutes."} />
+                )
+            }
+        </>
     );
 };
 

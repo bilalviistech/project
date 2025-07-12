@@ -6,7 +6,7 @@ import { FaTruck, FaRegClock, FaPhoneAlt, FaTimesCircle, FaMapMarkedAlt, FaCheck
 const DeliveryTracking = () => {
     return (
         <div>
-            <Header/>
+            <Header />
             <section className="bg-gradient-to-br px-4 py-12 md:px-10 lg:px-24 text-[#1f2937]">
                 <div className="max-w-5xl mx-auto bg-white rounded-xl p-6 md:p-10">
                     <h1 className="text-3xl md:text-4xl font-bold mb-6 text-orange-600 flex items-center gap-3">
@@ -62,7 +62,7 @@ const DeliveryTracking = () => {
                         </p>
                         <p className="text-gray-700 mt-2">
                             If your order is not delivered within the announced time, please contact our helpline or email us at:{" "}
-                            <a href="mailto:service@mavdocs.com" className="text-blue-600 underline">📩 service@mavdocs.com</a>
+                            <a href="mailto:service@mavdocs.pk" className="text-blue-600 underline">📩 service@mavdocs.pk</a>
                         </p>
 
                         <div className="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md flex items-start gap-3">
@@ -76,12 +76,12 @@ const DeliveryTracking = () => {
                     {/* Need Help */}
                     <div className="text-center border-t pt-6">
                         <p className="text-gray-700 text-sm flex justify-center items-center gap-2">
-                            <FaInfoCircle /> For any queries or support, reach out via our helpline or visit <a href="https://www.mavdocs.com" className="text-blue-600 underline ml-1">www.mavdocs.com</a>
+                            <FaInfoCircle /> For any queries or support, reach out via our helpline or visit <a href="https://www.mavdocs.pk" className="text-blue-600 underline ml-1">www.mavdocs.pk</a>
                         </p>
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

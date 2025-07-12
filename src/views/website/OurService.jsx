@@ -6,7 +6,7 @@ import { FaGavel, FaShieldAlt, FaGlobeAsia, FaBalanceScale, FaExternalLinkAlt, F
 const OurService = () => {
     return (
         <div>
-            <Header/>
+            <Header />
             <section className="bg-gradient-to-br px-4 py-12 md:px-10 lg:px-24 text-[#1f2937]">
                 <div className="max-w-5xl mx-auto bg-white rounded-xl p-6 md:p-10">
                     <h1 className="text-3xl md:text-4xl font-bold mb-6 text-orange-600 flex items-center gap-3">
@@ -66,12 +66,12 @@ const OurService = () => {
                     <div className="text-center border-t pt-6 mt-6">
                         <p className="text-gray-700 text-sm">
                             For legal concerns or clarifications regarding our Terms of Service, contact us at:{" "}
-                            <a href="mailto:info@mavdocs.com" className="text-blue-600 underline">info@mavdocs.com</a>
+                            <a href="mailto:info@mavdocs.pk" className="text-blue-600 underline">info@mavdocs.pk</a>
                         </p>
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

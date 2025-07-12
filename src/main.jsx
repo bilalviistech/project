@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import Root from "./config";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "./views/website/ScrollToTop";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 0, refetchOnWindowFocus: false } },
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")).render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <ToastContainer />
+        <ScrollToTop />
         <Root />
       </BrowserRouter>
     </QueryClientProvider>

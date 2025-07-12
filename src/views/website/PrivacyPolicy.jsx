@@ -6,7 +6,7 @@ import { FaLock, FaEnvelope, FaShieldAlt, FaGlobe, FaCookieBite, FaTrash, FaExcl
 const PrivacyPolicy = () => {
     return (
         <div>
-            <Header/>
+            <Header />
             <section className="bg-gradient-to-br px-4 py-12 md:px-10 lg:px-24 text-[#1f2937]">
                 <div className="max-w-5xl mx-auto bg-white rounded-xl p-6 md:p-10">
                     <h1 className="text-3xl md:text-4xl font-bold mb-2 text-orange-600 flex items-center gap-3">
@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
                     <p className="text-gray-600 text-sm mb-6">Effective Date: 16-04-2025</p>
 
                     <p className="text-gray-700 mb-6">
-                        MavDocs understands the importance of maintaining your privacy. We value your trust and are committed to protecting your personal information. By visiting and/or using our website, <a href="https://www.mavdocs.com" className="text-blue-600 underline">www.mavdocs.com</a>, you agree to the practices described in this Privacy Policy.
+                        MavDocs understands the importance of maintaining your privacy. We value your trust and are committed to protecting your personal information. By visiting and/or using our website, <a href="https://www.mavdocs.pk" className="text-blue-600 underline">www.mavdocs.pk</a>, you agree to the practices described in this Privacy Policy.
                     </p>
 
                     <div className="space-y-10">
@@ -125,14 +125,14 @@ const PrivacyPolicy = () => {
                                 <FaEnvelope /> Contact Us
                             </h2>
                             <ul className="mt-2 space-y-1 text-gray-700">
-                                <li><strong>Email:</strong> <a href="mailto:info@mavdocs.com" className="underline text-blue-600">info@mavdocs.com</a></li>
-                                <li><strong>Website:</strong> <a href="https://www.mavdocs.com" className="underline text-blue-600">www.mavdocs.com</a></li>
+                                <li><strong>Email:</strong> <a href="mailto:info@mavdocs.pk" className="underline text-blue-600">info@mavdocs.pk</a></li>
+                                <li><strong>Website:</strong> <a href="https://www.mavdocs.pk" className="underline text-blue-600">www.mavdocs.pk</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

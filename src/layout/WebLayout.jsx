@@ -16,6 +16,8 @@ import JazzCashForm from "@/views/website/JazzCashForm";
 import Form from "@/views/website/Form";
 import Index from "@/views/website/Agreement/ResidentalRentalAgreement/ResidentialRentalAgreement"
 import TypeDocument from "@/views/website/TypeDocument";
+import BlogDetail from "@/views/website/BlogDetail";
+import AdminOrderPage from "@/views/website/AdminOrderPage";
 
 export const WebLayout = () => {
   return (
@@ -25,6 +27,8 @@ export const WebLayout = () => {
       <Route exact path="/product" element={<ProductScreen />} />
       <Route exact path="/product-detail/:id/:subcatId/:productTitle" element={<ProductDetailScreen />} />
       <Route exact path="/checkout" element={<CheckoutScreen />} />
+      <Route exact path="/x2409/order-128b7" element={<AdminOrderPage />} />
+      <Route path="/blog/:slug" element={<BlogDetail />} />
       {/* <Route exact path="/agreement/:id" element={<AgreementFormScreen />} /> */}
       <Route exact path="/agreement" element={<AgreementFormScreen />} />
       <Route exact path="/contact-us" element={<Contact />} />

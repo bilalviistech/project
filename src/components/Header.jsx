@@ -8,8 +8,8 @@ const Header = () => {
     const [searchText, setSearchText] = useState('');
     const navigate = useNavigate();
 
-    const findingDocument = (e) => {
-        setSearchText("Customize")
+    const findingDocument = (e, data) => {
+        setSearchText(data)
         e.preventDefault();
         if (searchText.trim()) {
             navigate(`/product?search=${encodeURIComponent(searchText.trim())}`);
@@ -31,17 +31,17 @@ const Header = () => {
                 </div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex space-x-4">
-                    <button className="px-4 pb-1 text-white rounded-lg shadow-md hover:bg-[#f5a623] transition-all">
+                {/* <div className="hidden md:flex space-x-4">
+                    <button className="px-4 pb-1 text-white rounded-lg shadow-md hover:bg-[#f5a623] transition-all" onClick={(e) => findingDocument(e, "Agreement")}>
                         Agreement
                     </button>
                     <button className="px-4 pb-1 text-white rounded-lg shadow-md hover:bg-[#f5a623] transition-all">
                         Affidavit
                     </button>
-                    <button className="px-4 pb-1 text-white rounded-lg shadow-md hover:bg-[#f5a623] transition-all" onClick={findingDocument}>
+                    <button className="px-4 pb-1 text-white rounded-lg shadow-md hover:bg-[#f5a623] transition-all" onClick={(e) => findingDocument(e, "Customize")}>
                         Finding your document?
                     </button>
-                </div>
+                </div> */}
 
                 {/* Mobile Menu Toggle */}
                 <div className="md:hidden">
@@ -59,11 +59,11 @@ const Header = () => {
                     </button>
                     <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
                         Affidavit
-                    </button> */}
+                    </button>
                     <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all" onClick={findingDocument}>
                         Finding your document?
                     </button>
-                    {/* <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
+                    <button className="w-full text-left px-4 py-2 bg-[#f5a623] text-white rounded-lg shadow-md hover:bg-orange-600 transition-all">
                         Stamp Paper
                     </button> */}
                 </div>

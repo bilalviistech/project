@@ -5,8 +5,8 @@ import { FaPhoneAlt, FaEnvelope, FaExclamationTriangle, FaUndoAlt, FaFileAlt } f
 
 const ReturnExchangePolicy = () => {
     return (
-       <div>
-        <Header/>
+        <div>
+            <Header />
             <section className="bg-gradient-to-br px-4 py-12 md:px-10 lg:px-24 text-[#1f2937]">
                 <div className="max-w-4xl mx-auto bg-white rounded-xl p-6 md:p-10">
                     <h1 className="text-3xl md:text-4xl font-bold mb-6 text-orange-600 flex items-center gap-3">
@@ -51,7 +51,7 @@ const ReturnExchangePolicy = () => {
                             </li>
                             <li className="flex items-center gap-3">
                                 <FaEnvelope className="text-blue-500" />
-                                <strong>Email:</strong> <a href="mailto:service@mavdocs.com" className="underline text-blue-600">service@mavdocs.com</a>
+                                <strong>Email:</strong> <a href="mailto:service@mavdocs.pk" className="underline text-blue-600">service@mavdocs.pk</a>
                             </li>
                         </ul>
 
@@ -76,8 +76,8 @@ const ReturnExchangePolicy = () => {
                     </div>
                 </div>
             </section>
-        <Footer/>
-       </div>
+            <Footer />
+        </div>
     );
 };
 
