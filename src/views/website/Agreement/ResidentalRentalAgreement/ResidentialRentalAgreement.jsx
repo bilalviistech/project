@@ -6,7 +6,7 @@ import Step2 from "./Components/Step2";
 import Step3 from "./Components/Step3";
 import { useNavigate } from "react-router-dom";
 
-const ResidentialRentalAgreement = ({product, selectedPrice, subcategory}) => {
+const ResidentialRentalAgreement = ({ product, selectedPrice, subcategory, category }) => {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
 
@@ -30,7 +30,7 @@ const ResidentialRentalAgreement = ({product, selectedPrice, subcategory}) => {
     const handleSubmit = () => {
         // console.log("Final Submission Data:", formData);
         navigate("/checkout", {
-            state: { selectedPrice, product, subcategory }
+            state: { selectedPrice, product, subcategory, category }
         });
     };
 

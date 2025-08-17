@@ -138,38 +138,49 @@ const ProductDetail = () => {
                         <div className="space-y-4">
                             {
                                 selectedPrice.previous == 0 ? (
-                                    <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all" onClick={()=> toast.error("Please select your stamp paper")}>
+                                    <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all" onClick={() => toast.error("Please select your stamp paper")}>
                                         <FaShoppingCart />
                                         <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
                                     </button>
-                                ): (
-                                        <Link to = "/checkout" state = {{ selectedPrice, product, subcategory, category }}>
-                            <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
-                                <FaShoppingCart />
-                                <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
-                            </button>
-                        </Link>
-                        )
+                                ) : (
+                                    <Link to="/checkout" state={{ selectedPrice, product, subcategory, category }}>
+                                        <button className="w-full flex items-center justify-center gap-2 px-6 py-3 my-3 bg-[#f5a623] text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition-all">
+                                            <FaShoppingCart />
+                                            <span className="">Get Open Document <span className="block">(Fill Later With Pen)</span></span>
+                                        </button>
+                                    </Link>
+                                )
                             }
 
-                        <Link to="/type-document" state={{ selectedPrice, product, subcategory, category }}>
-                            <button disabled={true} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-not-allowed">
-                                <FaShoppingCart />
-                                <span className="">Get Typed Document <span className="block">(Fill Online Now)</span><span className="block">Coming Soon</span></span>
-                            </button>
-                        </Link>
-                        {/* {product?.url && (
+                            {
+                                selectedPrice.previous == 0 ? (
+                                    <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-pointer" onClick={() => toast.error("Please select your stamp paper")}>
+                                        <FaShoppingCart />
+                                        <span className="">Get Typed Document <span className="block">(Fill Online Now)</span><span className="block">Coming Soon</span></span>
+                                    </button>
+                                ) : (
+                                    <Link to="/type-document" state={{ selectedPrice, product, subcategory, category }}>
+                                        <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-all cursor-pointer">
+                                            <FaShoppingCart />
+                                            <span className="">Get Typed Document <span className="block">(Fill Online Now)</span><span className="block">Coming Soon</span></span>
+                                        </button>
+                                    </Link>
+                                )
+                            }
+
+
+                            {/* {product?.url && (
                                 <img src={product.url} alt={product.title} className="rounded-lg shadow-md w-full max-w-lg md:w-full sm:w-full lg:w-full" />
                             )} */}
+                        </div>
+                    </div>
+                    <div className="text-xs text-gray-400 text-center">
+                        *You can choose between a blank or editable version based on your preference.*
                     </div>
                 </div>
-                <div className="text-xs text-gray-400 text-center">
-                    *You can choose between a blank or editable version based on your preference.*
-                </div>
-        </div>
             </section >
 
-    <Footer />
+            <Footer />
         </div >
     );
 };

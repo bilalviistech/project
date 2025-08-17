@@ -8,6 +8,10 @@ const TypeDocument = () => {
     const product = location.state?.product;
     const selectedPrice = location.state?.selectedPrice;
     const subcategory = location.state?.subcategory;
+    const category = location.state?.category;
+    console.log("this is subcategory", subcategory)
+    console.log("this is product", product)
+    console.log("this is category", category)
 
     useEffect(() => {
         if (!product && !selectedPrice && !subcategory) {
@@ -21,7 +25,7 @@ const TypeDocument = () => {
             {
                 // <Link to="/checkout" state={{ selectedPrice, product, subcategory }}></Link>
                 product.title === "Residental Rental Agreement" ? (
-                    <ResidentialRentalAgreement product={product} selectedPrice={selectedPrice} subcategory={subcategory} />
+                    <ResidentialRentalAgreement product={product} selectedPrice={selectedPrice} subcategory={subcategory} category={category}/>
                 ) : (
                     <div className="bg-green-100 p-4 rounded">
                         {/* Render other product types */}

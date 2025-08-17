@@ -39,6 +39,18 @@ const Step1 = ({ data, onChange, nextStep }) => {
                         />
                     </div>
                     <div className="w-2/3">
+                        <label className="block text-gray-600 font-medium">Enter Day</label>
+                        <input
+                            type="text"
+                            name="month"
+                            value={data.month || ""}
+                            onChange={handleChange}
+                            placeholder="May"
+                            maxLength={8}
+                            className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+                        />
+                    </div>
+                    <div className="w-2/3">
                         <label className="block text-gray-600 font-medium">Year</label>
                         <input
                             type="text"
