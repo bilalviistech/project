@@ -189,6 +189,19 @@
   animation: slideText 3s ease-in-out infinite;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  width: 30px;
+  /* arrow ka area */
+  height: 30px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px;
+  /* arrow ka actual icon size */
+}
+
 @keyframes slideText {
   0% {
     opacity: 0;

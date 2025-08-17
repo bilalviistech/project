@@ -190,7 +190,7 @@ const Checkout = () => {
                                             icon={FaUser}
                                             type="text"
                                             name="userName"
-                                            placeholder="Full Name"
+                                            placeholder="Full Name *"
                                             value={formData.userName}
                                             onChange={handleInputChange}
                                             required
@@ -199,7 +199,7 @@ const Checkout = () => {
                                             icon={FaPhone}
                                             type="tel"
                                             name="userPhoneNumber"
-                                            placeholder="Phone Number"
+                                            placeholder="Phone Number *"
                                             value={formData.userPhoneNumber}
                                             onChange={handleInputChange}
                                             required
@@ -208,7 +208,7 @@ const Checkout = () => {
                                             icon={FaMapMarkerAlt}
                                             type="text"
                                             name="userAddress"
-                                            placeholder="Full Address"
+                                            placeholder="Full Address *"
                                             value={formData.userAddress}
                                             onChange={handleInputChange}
                                             required
@@ -294,16 +294,16 @@ const Checkout = () => {
                                                     3 PM – 6 PM
                                                 </label> */}
                                                 {
-                                                    day === "today" && (
+                                                    day === "today" ? (
                                                         <>
                                                             <div className=''>
                                                                 <div className='flex justify-center items-center'>
-                                                                    <h2>Delivery Within:</h2>
+                                                                    <h2 className='font-bold'>Delivery Within:</h2>
                                                                 </div>
                                                             </div>
                                                             <div className=''>
                                                                 <div className='flex justify-center items-center'>
-                                                                    <h3>3 Hours</h3>
+                                                                    <h3 className='font-bold text-2xl text-orange-500'>3 Hours</h3>
                                                                 </div>
                                                             </div>
                                                             <div className=''>
@@ -312,7 +312,20 @@ const Checkout = () => {
                                                                 </div>
                                                             </div>
                                                         </>
-                                                    )
+                                                    ) : day === "tomorrow" ? (
+                                                        <>
+                                                            <div className=''>
+                                                                <div className='flex justify-center items-center'>
+                                                                    <h2 className='font-bold'>Discount: Rs 100:</h2>
+                                                                </div>
+                                                            </div>
+                                                            <div className=''>
+                                                                <div className='flex justify-center items-center'>
+                                                                    <p>*All orders will be delivered between 10 AM and 7 PM*</p>
+                                                                </div>
+                                                            </div>
+                                                        </>
+                                                    ) : (null)
                                                 }
                                             </div>
                                         </div>
@@ -420,16 +433,16 @@ const Checkout = () => {
                                             3 PM – 6 PM
                                         </label> */}
                                         {
-                                            day === "today" && (
+                                            day === "today" ? (
                                                 <>
                                                     <div className=''>
                                                         <div className='flex justify-center items-center'>
-                                                            <h2>Delivery Within:</h2>
+                                                            <h2 className='font-bold'>Delivery Within:</h2>
                                                         </div>
                                                     </div>
                                                     <div className=''>
                                                         <div className='flex justify-center items-center'>
-                                                            <h3>3 Hours</h3>
+                                                            <h3 className='font-bold text-2xl text-orange-500'>3 Hours</h3>
                                                         </div>
                                                     </div>
                                                     <div className=''>
@@ -438,7 +451,20 @@ const Checkout = () => {
                                                         </div>
                                                     </div>
                                                 </>
-                                            )
+                                            ) : day === "tomorrow" ? (
+                                                <>
+                                                    <div className=''>
+                                                        <div className='flex justify-center items-center'>
+                                                            <h2 className='font-bold'>Discount: Rs 100:</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div className=''>
+                                                        <div className='flex justify-center items-center'>
+                                                            <p>*All orders will be delivered between 10 AM and 7 PM*</p>
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            ) : (null)
                                         }
                                     </div>
                                 </div>
@@ -497,7 +523,7 @@ const Checkout = () => {
 
             {
                 modal && (
-                    <ThankYou heading={"Thank you for your order!"} descp={"Your order has been successfully received. Our team is processing it, and you can expect an update within the next 10 minutes."}/>
+                    <ThankYou heading={"Thank you for your order!"} descp={"Your order has been successfully received. Our team is processing it, and you can expect an update within the next 10 minutes."} />
                 )
             }
         </>

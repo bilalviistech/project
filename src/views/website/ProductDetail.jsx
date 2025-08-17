@@ -16,12 +16,12 @@ const ProductDetail = () => {
         {
             name: "Agreement",
             prices: [
-                "Select your stamp paper price", 100, 200, 500
+                "Select your stamp paper", 100, 200, 500
             ]
         }, {
             name: "Affidavit",
             prices: [
-                "Select your stamp paper price", 50, 100, 200
+                "Select your stamp paper", 50, 100, 200
             ]
         },
     ]
@@ -85,7 +85,7 @@ const ProductDetail = () => {
                                 .flatMap((price) =>
                                     price.prices.map((e, i) => (
                                         <option key={i} value={i == 0 ? 0 : e}>
-                                            Rs: {e}
+                                            {e}
                                         </option>
                                     ))
                                 )}
