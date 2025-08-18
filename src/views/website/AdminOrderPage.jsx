@@ -8,7 +8,7 @@ const AdminOrderPage = () => {
 
     const fetchOrders = async (pageNum = 1) => {
         try {
-            const res = await axios.get(`https://mavdocsbackend-production.up.railway.app/api/order?page=${pageNum}`);
+            const res = await axios.get(`http://139.59.4.76:5000/api/order?page=${pageNum}`);
             setOrders(res.data.data);
             setPage(res.data.page);
             setTotalPages(res.data.totalPages);

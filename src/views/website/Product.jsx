@@ -165,7 +165,7 @@ const Product = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://mavdocsbackend-production.up.railway.app/api/order/query',
+            url: 'http://139.59.4.76:5000/api/order/query',
             headers: {
                 'Content-Type': 'application/json'
             },
