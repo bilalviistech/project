@@ -17,6 +17,8 @@ const InputWithIcon = ({ icon: Icon, ...props }) => (
     </div>
 );
 
+const api = import.meta.env.VITE_API_URL
+
 const Checkout = () => {
     const [day, setDay] = useState('');
     const [modal, openModal] = useState(false)
@@ -126,7 +128,7 @@ const Checkout = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: '/api/order',
+            url: `${api}/api/order`,
             headers: {
                 'Content-Type': 'application/json'
             },

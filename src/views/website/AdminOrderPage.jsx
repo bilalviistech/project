@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const api = import.meta.env.VITE_API_URL
+
 const AdminOrderPage = () => {
     const [orders, setOrders] = useState([]);
     const [page, setPage] = useState(1);
@@ -8,7 +10,7 @@ const AdminOrderPage = () => {
 
     const fetchOrders = async (pageNum = 1) => {
         try {
-            const res = await axios.get(`http://139.59.4.76:5000/api/order?page=${pageNum}`);
+            const res = await axios.get(`${api}/api/order?page=${pageNum}`);
             setOrders(res.data.data);
             setPage(res.data.page);
             setTotalPages(res.data.totalPages);

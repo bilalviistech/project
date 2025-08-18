@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import axios from 'axios';
 import ThankYou from "@/components/ThankYou";
 
+const api = import.meta.env.VITE_API_URL
+
 const Product = () => {
     const [modal, showModal] = useState(false)
     const [searchText, setSearchText] = useState("");  // Use this to control the search bar
@@ -165,7 +167,7 @@ const Product = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: '/api/order',
+            url: `${api}/api/order`,
             headers: {
                 'Content-Type': 'application/json'
             },
