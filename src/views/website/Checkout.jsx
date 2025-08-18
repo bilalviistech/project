@@ -126,7 +126,7 @@ const Checkout = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'http://139.59.4.76:5000/api/order',
+            url: '/api/order',
             headers: {
                 'Content-Type': 'application/json'
             },
