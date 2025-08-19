@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { dateFormat } from '../../utils/helper';
 
 const api = import.meta.env.VITE_API_URL
 
@@ -47,6 +48,7 @@ const AdminOrderPage = () => {
                             <th>Delivery</th>
                             <th>Payment</th>
                             <th>Price</th>
+                            <th>Order Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,6 +62,7 @@ const AdminOrderPage = () => {
                                 <td className='text-center'>{order.deliverySlot}</td>
                                 <td className='text-center'>{order.paymentMethod}</td>
                                 <td className='text-center'>Rs. {order.totalPrice}</td>
+                                <td className='text-center'>{dateFormat(order.createdAt)}</td>
                             </tr>
                         ))}
                     </tbody>
