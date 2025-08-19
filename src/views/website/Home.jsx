@@ -2089,13 +2089,12 @@ const Home = () => {
         </Swiper>
       </section>
 
-      <section className="pt-8 pb-10 px-6 bg-[#f0f4f8] text-center">
+      {/* <section className="pt-8 pb-10 px-6 bg-[#f0f4f8] text-center">
         <h2 className="text-3xl font-bold text-[#003092] mb-8">
           How we works
         </h2>
 
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
-          {/* Text Explanation */}
           <div className="flex-1">
             <h3 className="text-2xl font-medium text-[#003092] mb-4">
               Easy & Simple Process
@@ -2110,7 +2109,6 @@ const Home = () => {
             </ul>
           </div>
 
-          {/* Video */}
           <div className="flex-1 w-full max-w-lg">
             <div className="relative overflow-hidden rounded-lg shadow-lg">
               <iframe
@@ -2125,7 +2123,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="pt-8 px-6 bg-[#f7f7f7] text-center">
         <h2 className="text-3xl font-bold text-[#003092] mb-8">

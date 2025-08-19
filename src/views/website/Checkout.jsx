@@ -350,7 +350,7 @@ const Checkout = () => {
                                                 </label>
                                             </div>
 
-                                            <h2 className="text-lg font-bold text-gray-700 mt-3 mb-3">Urgent Delivery</h2>
+                                            {/* <h2 className="text-lg font-bold text-gray-700 mt-3 mb-3">Urgent Delivery</h2>
                                             <div className="space-y-3 text-sm">
                                                 <label className="flex items-center gap-2">
                                                     <input
@@ -363,7 +363,7 @@ const Checkout = () => {
                                                     />
                                                     1 Hour Delivery: Rs 70 Extra
                                                 </label>
-                                            </div>
+                                            </div> */}
                                         </div>
 
                                         {/* Submit Button */}
@@ -489,7 +489,7 @@ const Checkout = () => {
                                         </label>
                                     </div>
 
-                                    <h2 className="text-lg font-bold text-gray-700 mt-3 mb-3">Urgent Delivery</h2>
+                                    {/* <h2 className="text-lg font-bold text-gray-700 mt-3 mb-3">Urgent Delivery</h2>
                                     <div className="space-y-3 text-sm">
                                         <label className="flex items-center gap-2">
                                             <input
@@ -502,7 +502,7 @@ const Checkout = () => {
                                             />
                                             1 Hour Delivery: Rs 70 Extra
                                         </label>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 {/* Submit Button */}
