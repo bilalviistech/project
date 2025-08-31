@@ -273,7 +273,7 @@ const Product = () => {
                     <div className="text-center mt-8">
                         <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md border border-blue-100">
                             <h2 className="text-xl font-semibold text-[#003092] mb-4">
-                                Need anyother documents Fill your detail
+                                Need anyother document's<br /> Fill your detail
                             </h2>
 
                             <form className="space-y-4" onSubmit={handleSubmit}>

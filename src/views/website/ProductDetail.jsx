@@ -63,8 +63,8 @@ const ProductDetail = () => {
             <Header />
 
             {/* Banner */}
-            <section className="rounded-xl mx-4 md:mx-10 mt-6 p-8 shadow-lg">
-                <img src={bannerDetailPage} alt="" className="w-full object-contain" />
+            <section className="rounded-xl mx-4 md:mx-10 mt-6 shadow-lg">
+                <img src={bannerDetailPage} alt="" className="w-full object-contain rounded-xl" />
             </section>
 
             {/* Product Section */}
@@ -86,7 +86,7 @@ const ProductDetail = () => {
                                 .flatMap((price) =>
                                     price.prices.map((e, i) => (
                                         <option key={i} value={i == 0 ? 0 : e}>
-                                            {e}
+                                            {e == 100 ? "100 Rupees Stamp" : e == 200 ? "200 Rupees Stamp" : "Select your stamp paper"}
                                         </option>
                                     ))
                                 )}
