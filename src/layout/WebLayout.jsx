@@ -18,6 +18,7 @@ import Index from "@/views/website/Agreement/ResidentalRentalAgreement/Residenti
 import TypeDocument from "@/views/website/TypeDocument";
 import BlogDetail from "@/views/website/BlogDetail";
 import AdminOrderPage from "@/views/website/AdminOrderPage";
+import AdminQueryPage from "@/views/website/AdminQueryPage";
 
 export const WebLayout = () => {
   return (
@@ -28,6 +29,7 @@ export const WebLayout = () => {
       <Route exact path="/product-detail/:id/:subcatId/:productTitle" element={<ProductDetailScreen />} />
       <Route exact path="/checkout" element={<CheckoutScreen />} />
       <Route exact path="/x2409order128b7" element={<AdminOrderPage />} />
+      <Route exact path="/x2409order128b8" element={<AdminQueryPage />} />
       <Route path="/blog/:slug" element={<BlogDetail />} />
       {/* <Route exact path="/agreement/:id" element={<AgreementFormScreen />} /> */}
       <Route exact path="/agreement" element={<AgreementFormScreen />} />

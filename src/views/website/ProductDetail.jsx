@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { products } from "../../constant/data"
 import truncate from 'html-truncate';
 import banner2 from "@/assets/images/banner2.jpg"
+import bannerDetailPage from "@/assets/images/bannerDetailPage.jpg"
 import { toast } from "react-toastify";
 
 const ProductDetail = () => {
@@ -16,12 +17,12 @@ const ProductDetail = () => {
         {
             name: "Agreement",
             prices: [
-                "Select your stamp paper", 100, 200, 500
+                "Select your stamp paper", 100, 200
             ]
         }, {
             name: "Affidavit",
             prices: [
-                "Select your stamp paper", 50, 100, 200
+                "Select your stamp paper", 100, 200
             ]
         },
     ]
@@ -39,7 +40,7 @@ const ProductDetail = () => {
     });
 
     const [showFull, setShowFull] = useState(false);
-    const previewLimit = 300;
+    const previewLimit = 110;
 
     const truncatedHtml = truncate(product.longDetail, previewLimit);
 
@@ -62,8 +63,8 @@ const ProductDetail = () => {
             <Header />
 
             {/* Banner */}
-            <section className="bg-[#C6E7FF] rounded-xl mx-4 md:mx-10 mt-6 p-8 shadow-lg">
-                <img src={banner2} alt="" className="w-full object-contain" />
+            <section className="rounded-xl mx-4 md:mx-10 mt-6 p-8 shadow-lg">
+                <img src={bannerDetailPage} alt="" className="w-full object-contain" />
             </section>
 
             {/* Product Section */}
@@ -99,7 +100,7 @@ const ProductDetail = () => {
                     </div>
 
                     <div className="mb-6">
-                        <p className="text-xl font-semibold text-gray-700 mb-2">Product Description</p>
+                        <p className="text-xl font-semibold text-gray-700">Product Description</p>
                         <div className="text-gray-700">
                             {!showFull ? (
                                 <>

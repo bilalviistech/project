@@ -165,7 +165,7 @@ const Checkout = () => {
                                     <img src={product.url} alt="Contract" className="w-28 h-28 object-cover rounded-xl border" />
                                     <div>
                                         <h3 className="text-xl font-semibold text-blue-900">{product.title}</h3>
-                                        <p className="text-gray-600 text-sm">Includes stamp paper + <span className='text-base font-bold'>Home Delivery</span></p>
+                                        <p className="text-gray-600 text-sm">Includes stamp paper + <span className='text-base font-bold'>Free Delivery</span></p>
                                         <div className="mt-2 text-orange-500 font-bold text-lg">
                                             PKR {selectedPrice.price}
                                         </div>
@@ -177,7 +177,7 @@ const Checkout = () => {
                                     <img src={productImg} alt="Contract" className="w-20 h-20 object-cover rounded-lg border" />
                                     <div className="flex flex-col">
                                         <h3 className="text-base font-semibold text-blue-900">{subcategory.name}</h3>
-                                        <p className="text-gray-600 text-xs">Stamp paper + home delivery</p>
+                                        <p className="text-gray-600 text-xs">Stamp paper + <span className='text-base font-bold'>Free Delivery</span></p>
                                         <div className="mt-1 text-orange-500 font-bold text-sm">
                                             PKR {selectedPrice.price + price}
                                         </div>
@@ -187,7 +187,7 @@ const Checkout = () => {
                                 {/* Form Fields */}
                                 <form id="checkoutForm" onSubmit={handleSubmit}>
                                     <div className="space-y-4">
-                                        <h1 className="font-bold text-lg text-blue-900">Enter Detail</h1>
+                                        <h1 className="font-bold text-lg text-black">Enter Delivery Details</h1>
                                         <InputWithIcon
                                             icon={FaUser}
                                             type="text"
@@ -242,10 +242,10 @@ const Checkout = () => {
                                     </div>
 
                                     {/* Right Side: Options & Submit */}
-                                    <div className="bg-gradient-to-b from-blue-50 via-white to-orange-50 p-6 md:p-10 flex flex-col justify-between gap-6 xl:hidden">
+                                    <div className="mt-5 bg-gradient-to-b from-blue-50 via-white to-orange-50 p-6 md:p-10 flex flex-col justify-between gap-6 xl:hidden">
                                         {/* Delivery Time Section */}
                                         <div className="bg-white rounded-xl shadow p-6">
-                                            <h2 className="text-lg font-bold text-gray-700 mb-3">Choose Delivery Time</h2>
+                                            <h2 className="text-lg font-bold text-gray-700 mb-3 text-center">Choose Delivery Time</h2>
                                             <div className="mt-2 min-[510px]:flex gap-3 max-[500px]:block max-[500px]:w-full">
                                                 <button
                                                     type="button"
@@ -310,7 +310,7 @@ const Checkout = () => {
                                                             </div>
                                                             <div className=''>
                                                                 <div className='flex justify-center items-center'>
-                                                                    <p>*All orders will be delivered between 10 AM and 7 PM*</p>
+                                                                    <p className='text-center'>*all orders will be delivered between 10 AM and 7 PM*</p>
                                                                 </div>
                                                             </div>
                                                         </>
@@ -323,7 +323,7 @@ const Checkout = () => {
                                                             </div>
                                                             <div className=''>
                                                                 <div className='flex justify-center items-center'>
-                                                                    <p>*All orders will be delivered between 10 AM and 7 PM*</p>
+                                                                    <p className='text-center'>*all orders will be delivered between 10 AM and 7 PM*</p>
                                                                 </div>
                                                             </div>
                                                         </>

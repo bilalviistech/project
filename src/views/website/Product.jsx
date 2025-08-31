@@ -154,7 +154,7 @@ const Product = () => {
         }
         if (!formData.docDetail) {
             setLoading(false);
-            toast.error('Please Please provide a docDetail.');
+            toast.error('Please Please provide a document detail.');
             return;
         }
 
@@ -167,7 +167,7 @@ const Product = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: `${api}/api/order`,
+            url: `${api}/api/order/query`,
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -273,12 +273,12 @@ const Product = () => {
                     <div className="text-center mt-8">
                         <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md border border-blue-100">
                             <h2 className="text-xl font-semibold text-[#003092] mb-4">
-                                Need any stamp paper understanding, promissory note or other documents? Send us your detail
+                                Need anyother documents Fill your detail
                             </h2>
 
                             <form className="space-y-4" onSubmit={handleSubmit}>
                                 <div className="text-left">
-                                    <label className="block text-sm font-medium text-gray-700">Name</label>
+                                    <label className="block text-sm font-medium text-gray-700">Name *</label>
                                     <input
                                         type="text"
                                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
@@ -290,7 +290,7 @@ const Product = () => {
                                 </div>
 
                                 <div className="text-left">
-                                    <label className="block text-sm font-medium text-gray-700">Contact</label>
+                                    <label className="block text-sm font-medium text-gray-700">Contact *</label>
                                     <input
                                         type="text"
                                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"
@@ -302,7 +302,7 @@ const Product = () => {
                                 </div>
 
                                 <div className="text-left">
-                                    <label className="block text-sm font-medium text-gray-700">Document Details</label>
+                                    <label className="block text-sm font-medium text-gray-700">Document Details *</label>
                                     <textarea
                                         rows="3"
                                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5a623] border-gray-300 text-black"

@@ -70,7 +70,7 @@ const AdminOrderPage = () => {
             )}
 
             {/* Pagination Controls */}
-            <div className="mt-4 flex gap-2 items-center">
+            <div className="mt-4 flex gap-2 items-center justify-center">
                 <button
                     onClick={() => handlePageChange(page - 1)}
                     disabled={page === 1}

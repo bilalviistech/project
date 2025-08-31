@@ -20,7 +20,7 @@ const Footer = () => {
                         <span className="font-extrabold">mavdocs.pk</span> is a legal tech platform and  not a law firm or accounting firm and does not provide legal, tax, or accounting advice. The content, materials, documents, and templates available on this website are intended solely for informational and educational purposes
                     </p>
                     <Link
-                        to="/"
+                        to="/about-us"
                         className="text-blue-400 hover:text-[#f5a623] transition-all duration-300 text-sm"
                     >
                         Read More
