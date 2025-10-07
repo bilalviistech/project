@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { products } from "../../constant/data"
 import truncate from 'html-truncate';
-import banner2 from "@/assets/images/banner2.jpg"
+import banner2 from "@/assets/images/banner2.webp"
 import bannerDetailPage from "@/assets/images/bannerDetailPage.jpg"
 import { toast } from "react-toastify";
 
@@ -64,7 +64,7 @@ const ProductDetail = () => {
 
             {/* Banner */}
             <section className="rounded-xl mx-4 md:mx-10 mt-6 shadow-lg">
-                <img src={bannerDetailPage} alt="" className="w-full object-contain rounded-xl" />
+                <img src={bannerDetailPage} alt="banner_detail" className="w-full object-contain rounded-xl" loading="lazy"/>
             </section>
 
             {/* Product Section */}

@@ -93,7 +93,7 @@ const Product = () => {
                                         <div className="absolute top-7 right-4 text-right">
                                             <p className="text-sm text-gray-500 font-medium">Initial Price</p>
                                             <p className="text-lg font-semibold text-[#003092]">Rs {product.price}</p>
-                                            <img src={product.url} alt="" className="w-40 mt-7 rounded-lg object-contain max-[500px]:hidden" />
+                                            <img src={product.url} alt="product" className="w-40 mt-7 rounded-lg object-contain max-[500px]:hidden" loading="lazy"/>
                                         </div>
 
                                         {/* Product Content */}

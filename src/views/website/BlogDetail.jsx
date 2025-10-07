@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { blogPosts } from "./Home";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { blogPosts } from "../../constant/data";
 
 const BlogDetail = () => {
     const { slug } = useParams();

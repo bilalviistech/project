@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import React, { useEffect, useState } from 'react';
 import { FaUser, FaPhone, FaMapMarkerAlt, FaCity, FaCommentDots } from 'react-icons/fa';
-import productImg from '@/assets/images/productImg.jpg';
+import productImg from '@/assets/images/productImg.webp';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import toast, { Toaster } from 'react-hot-toast';
@@ -174,7 +174,7 @@ const Checkout = () => {
 
                                 {/* Product Summary for small screens - fixed bottom */}
                                 <div className="sm:hidden fixed bottom-0 left-0 w-full bg-white shadow-lg px-4 py-3 flex items-center gap-4 z-50 border-t">
-                                    <img src={productImg} alt="Contract" className="w-20 h-20 object-cover rounded-lg border" />
+                                    <img src={productImg} alt="Contract" className="w-20 h-20 object-cover rounded-lg border" loading='lazy'/>
                                     <div className="flex flex-col">
                                         <h3 className="text-base font-semibold text-blue-900">{subcategory.name}</h3>
                                         <p className="text-gray-600 text-xs">Stamp paper + <span className='text-base font-bold'>Free Delivery</span></p>
